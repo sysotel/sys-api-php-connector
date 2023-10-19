@@ -4,6 +4,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi;
 
 enum CmsOpenApiEnums
 {
+
     const PROPERTY_STATUS_ACTIVE = 'ACTIVE';
 
     const BOOKING_TYPE_DAILY = 'DAILY';
