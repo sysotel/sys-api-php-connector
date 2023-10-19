@@ -13,7 +13,7 @@ class CmsOpenApiResponse extends ApiResponseContext
     public function getErrorMessageFromResponse(): ?string
     {
         $message = null;
-        $response = $this->getXmlResponse();
+        $response = $this->getJsonArrayResponse();
 
 
         if ($response && !$this->hasSuccessfulHttpStatus()) {
