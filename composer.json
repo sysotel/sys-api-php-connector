@@ -1,6 +1,6 @@
 {
-    "name": "sysotel/sys-cms-php-connector",
-    "description": "Package to connect sys-cms package easily.",
+    "name": "sysotel/sys-api-php-connector",
+    "description": "Package to connect sysotel open apis package easily.",
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.4",
