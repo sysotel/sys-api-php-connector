@@ -27,9 +27,9 @@ class CmsOpenApi
 
     protected function __construct()
     {
-        $this->baseUrl = config('sys-cms-connector.open_api.base_url');
-        $this->clientId = config('sys-cms-connector.open_api.client_id');
-        $this->apiToken = config('sys-cms-connector.open_api.api_token');
+        $this->baseUrl = config('sys-api-connector.open_api.base_url');
+        $this->clientId = config('sys-api-connector.open_api.client_id');
+        $this->apiToken = config('sys-api-connector.open_api.api_token');
     }
 
     /**
