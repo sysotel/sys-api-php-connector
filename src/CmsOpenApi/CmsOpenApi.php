@@ -2,11 +2,11 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi;
 
-use SYSOTEL\APP\ApiConnector\ApiCalls\GetProperties;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use SYSOTEL\APP\ApiConnector\ApiCalls\GetPropertyDetails;
-use SYSOTEL\APP\ApiConnector\ApiCalls\GetPropertySearchResult;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetProperties;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
 
 class CmsOpenApi
 {
@@ -105,9 +105,9 @@ class CmsOpenApi
 
     /**
      * @param array $query
-     * @return ApiLog
+     * @return CmsOpenApiResponse
      */
-    public function getProperties(array $query = []): ApiLog
+    public function getProperties(array $query = []): CmsOpenApiResponse
     {
         return (new GetProperties($this, $query))->execute();
     }
@@ -115,18 +115,18 @@ class CmsOpenApi
     /**
      * @param int $propertyId
      * @param array $query
-     * @return ApiLog
+     * @return CmsOpenApiResponse
      */
-    public function getPropertyDetails(int $propertyId, array $query = []): ApiLog
+    public function getPropertyDetails(int $propertyId, array $query = []): CmsOpenApiResponse
     {
         return (new GetPropertyDetails($this, $propertyId, $query))->execute();
     }
 
     /**
      * @param string|null $searchTerm
-     * @return ApiLog
+     * @return CmsOpenApiResponse
      */
-    public function getPropertySearchResult(?string $searchTerm = null): ApiLog
+    public function getPropertySearchResult(?string $searchTerm = null): CmsOpenApiResponse
     {
         return (new GetPropertySearchResult($this, $searchTerm))->execute();
     }
