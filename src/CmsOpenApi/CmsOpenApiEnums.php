@@ -46,7 +46,7 @@ enum CmsOpenApiEnums
     /**
      * @return string[]
      */
-    public function propertyStatuses(): array
+    public static function propertyStatuses(): array
     {
         return [
             self::PROPERTY_STATUS_ACTIVE,
@@ -83,7 +83,7 @@ enum CmsOpenApiEnums
     /**
      * @return string[]
      */
-    public function inventoryAccuracies(): array
+    public static function inventoryAccuracies(): array
     {
         return [
             self::INVENTORY_ACCURACY_DAILY,
@@ -94,7 +94,7 @@ enum CmsOpenApiEnums
     /**
      * @return string[]
      */
-    public function allowedBookingTypes(): array
+    public static function allowedBookingTypes(): array
     {
         return [
             self::BOOKING_TYPE_DAILY,
@@ -105,7 +105,7 @@ enum CmsOpenApiEnums
     /**
      * @return string[]
      */
-    public function spaceStatuses(): array
+    public static function spaceStatuses(): array
     {
         return [
             self::SPACE_STATUS_ACTIVE,
@@ -116,7 +116,7 @@ enum CmsOpenApiEnums
     /**
      * @return string[]
      */
-    public function productStatuses(): array
+    public static function productStatuses(): array
     {
         return [
             self::PRODUCT_STATUS_ACTIVE,
@@ -127,7 +127,7 @@ enum CmsOpenApiEnums
     /**
      * @return string[]
      */
-    public function mealPlanCodes(): array
+    public static function mealPlanCodes(): array
     {
         return [
             self::MEAL_PLAN_CODE_EP,
