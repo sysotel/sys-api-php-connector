@@ -308,7 +308,7 @@ class Property extends Data
 
         if($this->spaces) {
             foreach($this->spaces as $space) {
-                $images = array_merge($space->getActiveImages());
+                $images = array_merge($images, $space->getActiveImages());
             }
         }
 
