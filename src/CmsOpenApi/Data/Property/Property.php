@@ -284,4 +284,18 @@ class Property extends Data
 
         return null;
     }
+
+    /**
+     * @return array<PropertyImage>
+     */
+    public function getActivePropertyImages(): array
+    {
+        if(!$this->images) {
+            return [];
+        }
+
+        return $this->images->filter(function(PropertyImage $image){
+            return $image->status === CmsOpenApiEnums::PROPERTY_IMAGE_STATUS_ACTIVE;
+        })->all();
+    }
 }
