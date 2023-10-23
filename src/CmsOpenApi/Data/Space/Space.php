@@ -4,6 +4,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space;
 
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\common\InventorySettings;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\common\SpaceOccupancy;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
@@ -25,6 +26,7 @@ class Space extends Data
      * @param InventorySettings $inventorySettings
      * @param string $createdAt
      * @param DataCollection<Product>|null $products
+     * @param DataCollection<PropertyImage>|null $images
      * @param float|null $rackRate
      * @param string|null $description
      */
@@ -40,11 +42,13 @@ class Space extends Data
         public SpaceOccupancy $occupancy,
         public InventorySettings $inventorySettings,
 
-//        #[WithCast(DateTimeInterfaceCast::class)]
         public string           $createdAt,
 
         #[DataCollectionOf(Product::class)]
         public ?DataCollection $products = null,
+
+        #[DataCollectionOf(PropertyImage::class)]
+        public ?DataCollection $images = null,
 
         public ?float $rackRate = null,
         public ?string $description = null,
@@ -94,5 +98,40 @@ class Space extends Data
         }
 
         return in_array($slot, $this->inventorySettings->hourlySlots);
+    }
+
+
+
+    /**
+     * @return PropertyImage|null
+     */
+    public function getFeaturedPropertyImage(): PropertyImage|null
+    {
+        if(!$this->images) return null;
+
+        foreach($this->images as $image) {
+            if($image->isFeatured) {
+                return $image;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return PropertyImage|null
+     */
+    public function getFirstOfFeaturedPropertyImage(): PropertyImage|null
+    {
+        $featuredImage = $this->getFeaturedPropertyImage();
+        if($featuredImage) {
+            return $featuredImage;
+        }
+
+        if(!empty($this->images)) {
+            return $this->images[0];
+        }
+
+        return null;
     }
 }

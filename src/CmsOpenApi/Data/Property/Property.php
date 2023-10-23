@@ -30,6 +30,9 @@ class Property extends Data
      * @param string[] $socialMediaUrls
      * @param string $createdAt
      * @param DataCollection<Space>|null $spaces
+     * @param DataCollection<PropertyImage>|null $images
+     * @param PropertyImage|null $logo
+     * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
      * @param string|null $description
      * @param int|null $noOfFloors
@@ -82,9 +85,17 @@ class Property extends Data
                 if (isset($spaceData['products'])) {
                     $responseData['spaces'][$i]['products'] = Product::collection($spaceData['products']);
                 }
+
+                if (isset($spaceData['images'])) {
+                    $responseData['spaces'][$i]['images'] = PropertyImage::collection($spaceData['images']);
+                }
             }
 
             $responseData['spaces'] = Space::collection($responseData['spaces']);
+        }
+
+        if (isset($responseData['images'])) {
+            $responseData['images'] = PropertyImage::collection($responseData['images']);
         }
 
         return static::from($responseData);
@@ -239,5 +250,38 @@ class Property extends Data
         }
 
         return array_unique($slots);
+    }
+
+    /**
+     * @return PropertyImage|null
+     */
+    public function getFeaturedPropertyImage(): PropertyImage|null
+    {
+        if(!$this->images) return null;
+
+        foreach($this->images as $image) {
+            if($image->isFeatured) {
+                return $image;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return PropertyImage|null
+     */
+    public function getFirstOfFeaturedPropertyImage(): PropertyImage|null
+    {
+        $featuredImage = $this->getFeaturedPropertyImage();
+        if($featuredImage) {
+            return $featuredImage;
+        }
+
+        if(!empty($this->images)) {
+            return $this->images[0];
+        }
+
+        return null;
     }
 }
