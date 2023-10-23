@@ -298,4 +298,20 @@ class Property extends Data
             return $image->status === CmsOpenApiEnums::PROPERTY_IMAGE_STATUS_ACTIVE;
         })->all();
     }
+
+    /**
+     * @return array<PropertyImage>
+     */
+    public function getActivePropertyAndSpaceImages(): array
+    {
+        $images = $this->getActivePropertyImages();
+
+        if($this->spaces) {
+            foreach($this->spaces as $space) {
+                $images = array_merge($space->getActiveImages());
+            }
+        }
+
+        return $images;
+    }
 }
