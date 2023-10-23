@@ -6,6 +6,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\Address;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property\common\PropertyLabels;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
@@ -16,8 +17,8 @@ class Property extends Data
     /**
      * @param int $id
      * @param string $accountId
-     * @param string $name
      * @param string $slug
+     * @param string $name
      * @param string $type
      * @param string $baseCurrency
      * @param string $timezone
@@ -27,6 +28,7 @@ class Property extends Data
      * @param Address $address
      * @param array $allowedBookingTypes
      * @param string[] $socialMediaUrls
+     * @param string $createdAt
      * @param DataCollection<Space>|null $spaces
      * @param int|null $starRating
      * @param string|null $description
@@ -53,6 +55,12 @@ class Property extends Data
 
         #[DataCollectionOf(Space::class)]
         public ?DataCollection $spaces = null,
+
+        #[DataCollectionOf(PropertyImage::class)]
+        public ?DataCollection $images = null,
+
+        public ?PropertyImage $logo = null,
+        public ?PropertyImage $bannerImage = null,
 
         public ?int            $starRating = null,
         public ?string         $description = null,
