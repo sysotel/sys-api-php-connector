@@ -138,7 +138,7 @@ class Space extends Data
     /**
      * @return array<PropertyImage>
      */
-    public function getActivePropertyImages(): array
+    public function getActiveImages(): array
     {
         if(!$this->images) {
             return [];
