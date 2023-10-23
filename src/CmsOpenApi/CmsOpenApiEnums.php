@@ -29,6 +29,31 @@ enum CmsOpenApiEnums
     const PROPERTY_TYPE_POD = 'POD';
     const PROPERTY_TYPE_OTHER = 'OTHER';
 
+    const SPACE_STAY_TYPE_PRIVATE = 'PRIVATE';
+    const SPACE_STAY_TYPE_SHARED = 'SHARED';
+
+    const SPACE_CATEGORY_APARTMENT = 'APARTMENT';
+    const SPACE_CATEGORY_QUADRUPLE = 'QUADRUPLE';
+    const SPACE_CATEGORY_SUITE = 'SUITE';
+    const SPACE_CATEGORY_TRIPLE = 'TRIPLE';
+    const SPACE_CATEGORY_TWIN = 'TWIN';
+    const SPACE_CATEGORY_DOUBLE = 'DOUBLE';
+    const SPACE_CATEGORY_SINGLE = 'SINGLE';
+    const SPACE_CATEGORY_STUDIO = 'STUDIO';
+    const SPACE_CATEGORY_FAMILY = 'FAMILY';
+    const SPACE_CATEGORY_DORMITORY = 'DORMITORY';
+    const SPACE_CATEGORY_BED_DORMITORY = 'BED_DORMITORY';
+    const SPACE_CATEGORY_BUNGALOW = 'BUNGALOW';
+    const SPACE_CATEGORY_CHALET = 'CHALET';
+    const SPACE_CATEGORY_HOLIDAY_HOME = 'HOLIDAY_HOME';
+    const SPACE_CATEGORY_VILLA = 'VILLA';
+    const SPACE_CATEGORY_MOBILE_HOME = 'MOBILE_HOME';
+    const SPACE_CATEGORY_TENT = 'TENT';
+    const SPACE_CATEGORY_POWERED_SITE = 'POWERED_SITE';
+    const SPACE_CATEGORY_KING = 'KING';
+    const SPACE_CATEGORY_QUEEN = 'QUEEN';
+    const SPACE_CATEGORY_OTHER = 'OTHER';
+
     const SPACE_STATUS_ACTIVE = 'ACTIVE';
     const SPACE_STATUS_INACTIVE = 'INACTIVE';
 
@@ -122,6 +147,47 @@ enum CmsOpenApiEnums
         return [
             self::SPACE_STATUS_ACTIVE,
             self::SPACE_STATUS_INACTIVE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function spaceCategories(): array
+    {
+        return [
+            self::SPACE_CATEGORY_APARTMENT,
+            self::SPACE_CATEGORY_QUADRUPLE,
+            self::SPACE_CATEGORY_SUITE,
+            self::SPACE_CATEGORY_TRIPLE,
+            self::SPACE_CATEGORY_TWIN,
+            self::SPACE_CATEGORY_DOUBLE,
+            self::SPACE_CATEGORY_SINGLE,
+            self::SPACE_CATEGORY_STUDIO,
+            self::SPACE_CATEGORY_FAMILY,
+            self::SPACE_CATEGORY_DORMITORY,
+            self::SPACE_CATEGORY_BED_DORMITORY,
+            self::SPACE_CATEGORY_BUNGALOW,
+            self::SPACE_CATEGORY_CHALET,
+            self::SPACE_CATEGORY_HOLIDAY_HOME,
+            self::SPACE_CATEGORY_VILLA,
+            self::SPACE_CATEGORY_MOBILE_HOME,
+            self::SPACE_CATEGORY_TENT,
+            self::SPACE_CATEGORY_POWERED_SITE,
+            self::SPACE_CATEGORY_KING,
+            self::SPACE_CATEGORY_QUEEN,
+            self::SPACE_CATEGORY_OTHER,
+         ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function spaceStayTypes(): array
+    {
+        return [
+            self::SPACE_STAY_TYPE_PRIVATE,
+            self::SPACE_STAY_TYPE_SHARED,
         ];
     }
 
