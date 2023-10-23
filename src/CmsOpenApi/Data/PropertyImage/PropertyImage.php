@@ -17,7 +17,7 @@ class PropertyImage extends Data
         public string $status,
         public string $createdAt,
         public string $url,
-        public string $thumbnailUrl,
+        public string|null $thumbnailUrl = null,
     )
     {
     }
