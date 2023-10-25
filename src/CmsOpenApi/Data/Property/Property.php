@@ -32,6 +32,7 @@ class Property extends Data
      * @param string $createdAt
      * @param DataCollection<Space>|null $spaces
      * @param DataCollection<PropertyImage>|null $images
+     * @param DataCollection<PropertyContact>|null $contacts
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
