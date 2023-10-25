@@ -6,6 +6,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\Address;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property\common\PropertyLabels;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyContact\PropertyContact;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
@@ -96,6 +97,14 @@ class Property extends Data
 
         if (isset($responseData['images'])) {
             $responseData['images'] = PropertyImage::collection($responseData['images']);
+        }
+
+        if (isset($responseData['images'])) {
+            $responseData['images'] = PropertyImage::collection($responseData['images']);
+        }
+
+        if (isset($responseData['contacts'])) {
+            $responseData['contacts'] = PropertyContact::collection($responseData['contacts']);
         }
 
         return static::from($responseData);
