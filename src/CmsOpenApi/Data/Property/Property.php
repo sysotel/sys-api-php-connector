@@ -63,6 +63,9 @@ class Property extends Data
         #[DataCollectionOf(PropertyImage::class)]
         public ?DataCollection $images = null,
 
+        #[DataCollectionOf(PropertyContact::class)]
+        public ?DataCollection $contacts = null,
+
         public ?PropertyImage $logo = null,
         public ?PropertyImage $bannerImage = null,
 
