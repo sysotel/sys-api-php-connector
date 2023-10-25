@@ -67,8 +67,8 @@ class Property extends Data
         #[DataCollectionOf(PropertyContact::class)]
         public ?DataCollection $contacts = null,
 
-        public ?PropertyImage $logo = null,
-        public ?PropertyImage $bannerImage = null,
+        public ?PropertyImage  $logo = null,
+        public ?PropertyImage  $bannerImage = null,
 
         public ?int            $starRating = null,
         public ?string         $description = null,
@@ -270,10 +270,10 @@ class Property extends Data
      */
     public function getFeaturedPropertyImage(): PropertyImage|null
     {
-        if(!$this->images) return null;
+        if (!$this->images) return null;
 
-        foreach($this->images as $image) {
-            if($image->isFeatured) {
+        foreach ($this->images as $image) {
+            if ($image->isFeatured) {
                 return $image;
             }
         }
@@ -287,11 +287,11 @@ class Property extends Data
     public function getFirstOfFeaturedPropertyImage(): PropertyImage|null
     {
         $featuredImage = $this->getFeaturedPropertyImage();
-        if($featuredImage) {
+        if ($featuredImage) {
             return $featuredImage;
         }
 
-        if(!empty($this->images)) {
+        if (!empty($this->images)) {
             return $this->images[0];
         }
 
@@ -303,11 +303,11 @@ class Property extends Data
      */
     public function getActivePropertyImages(): array
     {
-        if(!$this->images) {
+        if (!$this->images) {
             return [];
         }
 
-        return $this->images->filter(function(PropertyImage $image){
+        return $this->images->filter(function (PropertyImage $image) {
             return $image->status === CmsOpenApiEnums::PROPERTY_IMAGE_STATUS_ACTIVE;
         })->all();
     }
@@ -319,12 +319,24 @@ class Property extends Data
     {
         $images = $this->getActivePropertyImages();
 
-        if($this->spaces) {
-            foreach($this->spaces as $space) {
+        if ($this->spaces) {
+            foreach ($this->spaces as $space) {
                 $images = array_merge($images, $space->getActiveImages());
             }
         }
 
         return $images;
+    }
+
+    /**
+     * @return array
+     */
+    public function getContactsToPrintOnBookingVoucher(): array
+    {
+        if (!$this->contacts) return [];
+
+        return $this->contacts->filter(function (PropertyContact $contact) {
+            return $contact->printOnBookingVoucher === true;
+        })->all();
     }
 }
