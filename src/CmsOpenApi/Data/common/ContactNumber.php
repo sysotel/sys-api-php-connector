@@ -8,6 +8,7 @@ class ContactNumber extends Data
 {
     public function __construct(
         public string $countryCode,
+        public string $type,
         public string $number,
         public string $value,
     )
