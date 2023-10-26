@@ -291,7 +291,7 @@ class Property extends Data
             return $featuredImage;
         }
 
-        if (!empty($this->images)) {
+        if (!isset($this->images) && $this->images->count() > 0) {
             return $this->images[0];
         }
 
