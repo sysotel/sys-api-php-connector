@@ -12,6 +12,12 @@ enum CmsOpenApiEnums
     const BOOKING_TYPE_DAILY = 'DAILY';
     const BOOKING_TYPE_HOURLY = 'HOURLY';
 
+    const PROPERTY_STAR_RATING_ONE_STAR = 1;
+    const PROPERTY_STAR_RATING_TWO_STAR = 2;
+    const PROPERTY_STAR_RATING_THREE_STAR = 3;
+    const PROPERTY_STAR_RATING_FOUR_STAR = 4;
+    const PROPERTY_STAR_RATING_FIVE_STAR = 5;
+
     const PROPERTY_TYPE_HOTEL = 'HOTEL';
     const PROPERTY_TYPE_RESORT = 'RESORT';
     const PROPERTY_TYPE_HOMESTAY = 'HOMESTAY';
@@ -226,6 +232,20 @@ enum CmsOpenApiEnums
             self::MEAL_PLAN_CODE_CP,
             self::MEAL_PLAN_CODE_MAP,
             self::MEAL_PLAN_CODE_AP,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function propertyStarRatings(): array
+    {
+        return [
+            self::PROPERTY_STAR_RATING_ONE_STAR,
+            self::PROPERTY_STAR_RATING_TWO_STAR,
+            self::PROPERTY_STAR_RATING_THREE_STAR,
+            self::PROPERTY_STAR_RATING_FOUR_STAR,
+            self::PROPERTY_STAR_RATING_FIVE_STAR,
         ];
     }
 }
