@@ -255,4 +255,28 @@ enum CmsOpenApiEnums
             self::PROPERTY_STAR_RATING_FIVE_STAR,
         ];
     }
+
+    /**
+     * @return string[]
+     */
+    public static function locationTypes(): array
+    {
+        return [
+            self::LOCATION_TYPE_AREA,
+            self::LOCATION_TYPE_CITY,
+            self::LOCATION_TYPE_COUNTRY,
+            self::LOCATION_TYPE_STATE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function channelIds(): array
+    {
+        return [
+            self::CHANNEL_ID_SYSOTEL_CMS_OPEN_API,
+            self::CHANNEL_ID_AGGREGATE_INTELLIGENCE,
+        ];
+    }
 }
