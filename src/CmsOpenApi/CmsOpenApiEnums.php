@@ -4,6 +4,10 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi;
 
 enum CmsOpenApiEnums
 {
+    const LOCATION_TYPE_COUNTRY = 'COUNTRY';
+    const LOCATION_TYPE_STATE = 'STATE';
+    const LOCATION_TYPE_CITY = 'CITY';
+    const LOCATION_TYPE_AREA = 'AREA';
 
     const PROPERTY_STATUS_ACTIVE = 'ACTIVE';
     const PROPERTY_STATUS_INACTIVE = 'INACTIVE';
