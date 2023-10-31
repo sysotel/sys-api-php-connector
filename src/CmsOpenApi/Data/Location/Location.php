@@ -46,7 +46,11 @@ class Location extends Data
     {
     }
 
-    public function getChannel(string $channelId)
+    /**
+     * @param string $channelId
+     * @return null|LocationChannel
+     */
+    public function getChannel(string $channelId): ?LocationChannel
     {
         if (!empty($this->channels)) {
             foreach ($this->channels as $channel) {
