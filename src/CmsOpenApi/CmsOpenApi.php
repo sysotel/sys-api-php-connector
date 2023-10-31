@@ -8,6 +8,8 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetLocations;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetProperties;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPropertyDetailsRS;
 
 class CmsOpenApi
 {
@@ -116,9 +118,9 @@ class CmsOpenApi
     /**
      * @param int $propertyId
      * @param array $query
-     * @return CmsOpenApiResponse
+     * @return GetPropertyDetailsRS
      */
-    public function getPropertyDetails(int $propertyId, array $query = []): CmsOpenApiResponse
+    public function getPropertyDetails(int $propertyId, array $query = []): GetPropertyDetailsRS
     {
         return (new GetPropertyDetails($this, $propertyId, $query))->execute();
     }
@@ -134,9 +136,9 @@ class CmsOpenApi
 
     /**
      * @param array $query
-     * @return CmsOpenApiResponse
+     * @return GetLocationsRS
      */
-    public function getLocations(array $query = []): CmsOpenApiResponse
+    public function getLocations(array $query = []): GetLocationsRS
     {
         return (new GetLocations($this, $query))->execute();
     }
