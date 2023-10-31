@@ -28,7 +28,7 @@ class GetLocations extends CmsOpenApiCall
     {
         $request = new Request(
             method: 'GET',
-            uri: $this->api->getUrl("locations?" . http_build_query($this->query)),
+            uri: $this->api->getUrl("helpers/locations?" . http_build_query($this->query)),
             headers: $this->api->prepareHeaders(),
         );
 
