@@ -4,6 +4,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetLocations;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetProperties;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
@@ -129,5 +130,14 @@ class CmsOpenApi
     public function getPropertySearchResult(?string $searchTerm = null): CmsOpenApiResponse
     {
         return (new GetPropertySearchResult($this, $searchTerm))->execute();
+    }
+
+    /**
+     * @param array $query
+     * @return CmsOpenApiResponse
+     */
+    public function getLocations(array $query = []): CmsOpenApiResponse
+    {
+        return (new GetLocations($this, $query))->execute();
     }
 }
