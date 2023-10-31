@@ -2,9 +2,12 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Location;
 
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\GeoPoint;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\LocationReference;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Location\common\LocationChannel;
 
 class Location extends Data
 {
@@ -21,6 +24,7 @@ class Location extends Data
      * @param LocationReference|null $city
      * @param LocationReference|null $state
      * @param LocationReference|null $country
+     * @param DataCollection|null $channels
      */
     public function __construct(
         public int $id,
@@ -35,6 +39,9 @@ class Location extends Data
         public ?LocationReference $city = null,
         public ?LocationReference $state = null,
         public ?LocationReference $country = null,
+
+        #[DataCollectionOf(LocationChannel::class)]
+        public ?DataCollection $channels = null,
     )
     {
     }
