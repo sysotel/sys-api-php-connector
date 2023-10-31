@@ -4,7 +4,6 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls;
 
 use GuzzleHttp\Psr7\Request;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApi;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
 
 class GetLocations extends CmsOpenApiCall
@@ -23,9 +22,9 @@ class GetLocations extends CmsOpenApiCall
     }
 
     /**
-     * @return CmsOpenApiResponse
+     * @return GetLocationsRS
      */
-    public function execute(): CmsOpenApiResponse
+    public function execute(): GetLocationsRS
     {
         $request = new Request(
             method: 'GET',

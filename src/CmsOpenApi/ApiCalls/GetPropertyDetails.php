@@ -4,7 +4,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls;
 
 use GuzzleHttp\Psr7\Request;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApi;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPropertyDetailsRS;
 
 class GetPropertyDetails extends CmsOpenApiCall
 {
@@ -24,9 +24,9 @@ class GetPropertyDetails extends CmsOpenApiCall
     }
 
     /**
-     * @return CmsOpenApiResponse
+     * @return GetPropertyDetailsRS
      */
-    public function execute(): CmsOpenApiResponse
+    public function execute(): GetPropertyDetailsRS
     {
         $request = new Request(
             method: 'GET',
@@ -34,6 +34,6 @@ class GetPropertyDetails extends CmsOpenApiCall
             headers: $this->api->prepareHeaders(),
         );
 
-        return $this->makeApiCall($request);
+        return (new GetPropertyDetailsRS($request))->execute();
     }
 }
