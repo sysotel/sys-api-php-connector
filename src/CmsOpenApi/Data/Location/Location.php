@@ -24,25 +24,38 @@ class Location extends Data
      * @param LocationReference|null $city
      * @param LocationReference|null $state
      * @param LocationReference|null $country
-     * @param DataCollection|null $channels
+     * @param DataCollection<LocationChannel>|null $channels
      */
     public function __construct(
-        public int $id,
-        public string $name,
-        public int $categorySlug,
-        public string $type,
-        public string $createdAt,
-        public ?string $code = null,
-        public array $searchKeywords = [],
-        public ?string $postalCode = null,
-        public ?GeoPoint $geoPoint = null,
+        public int                $id,
+        public string             $name,
+        public int                $categorySlug,
+        public string             $type,
+        public string             $createdAt,
+        public ?string            $code = null,
+        public array              $searchKeywords = [],
+        public ?string            $postalCode = null,
+        public ?GeoPoint          $geoPoint = null,
         public ?LocationReference $city = null,
         public ?LocationReference $state = null,
         public ?LocationReference $country = null,
 
         #[DataCollectionOf(LocationChannel::class)]
-        public ?DataCollection $channels = null,
+        public ?DataCollection    $channels = null,
     )
     {
+    }
+
+    public function getChannel(string $channelId)
+    {
+        if (!empty($this->channels)) {
+            foreach ($this->channels as $channel) {
+                if ($channel->channelId === $channelId) {
+                    return $channel;
+                }
+            }
+        }
+
+        return null;
     }
 }
