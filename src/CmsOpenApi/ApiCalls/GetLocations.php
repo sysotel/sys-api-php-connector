@@ -5,6 +5,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls;
 use GuzzleHttp\Psr7\Request;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApi;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
 
 class GetLocations extends CmsOpenApiCall
 {
@@ -32,6 +33,6 @@ class GetLocations extends CmsOpenApiCall
             headers: $this->api->prepareHeaders(),
         );
 
-        return $this->makeApiCall($request);
+        return (new GetLocationsRS($request))->execute();
     }
 }
