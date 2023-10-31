@@ -12,13 +12,13 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Location\common\LocationChannel;
 class Location extends Data
 {
     /**
-     * @param int $id
+     * @param string $id
      * @param string $name
      * @param string $type
      * @param string $createdAt
+     * @param array $searchKeywords
      * @param string|null $categorySlug
      * @param string|null $code
-     * @param array $searchKeywords
      * @param string|null $postalCode
      * @param GeoPoint|null $geoPoint
      * @param LocationReference|null $city
@@ -27,7 +27,7 @@ class Location extends Data
      * @param DataCollection<LocationChannel>|null $channels
      */
     public function __construct(
-        public int                $id,
+        public string             $id,
         public string             $name,
         public string             $type,
         public string             $createdAt,
