@@ -40,6 +40,7 @@ class Location extends Data
         public ?LocationReference $state = null,
         public ?LocationReference $country = null,
 
+
         #[DataCollectionOf(LocationChannel::class)]
         public ?DataCollection    $channels = null,
     )
