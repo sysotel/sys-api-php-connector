@@ -8,6 +8,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property\common\PropertyLabels;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyContact\PropertyContact;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\PropertyPolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
@@ -30,9 +31,10 @@ class Property extends Data
      * @param array $allowedBookingTypes
      * @param string[] $socialMediaUrls
      * @param string $createdAt
-     * @param DataCollection<Space>|null $spaces
-     * @param DataCollection<PropertyImage>|null $images
-     * @param DataCollection<PropertyContact>|null $contacts
+     * @param DataCollection|null $spaces
+     * @param DataCollection|null $images
+     * @param DataCollection|null $contacts
+     * @param DataCollection|null $policies
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
@@ -66,6 +68,9 @@ class Property extends Data
 
         #[DataCollectionOf(PropertyContact::class)]
         public ?DataCollection $contacts = null,
+
+        #[DataCollectionOf(PropertyPolicy::class)]
+        public ?DataCollection $policies = null,
 
         public ?PropertyImage  $logo = null,
         public ?PropertyImage  $bannerImage = null,
@@ -103,12 +108,12 @@ class Property extends Data
             $responseData['images'] = PropertyImage::collection($responseData['images']);
         }
 
-        if (isset($responseData['images'])) {
-            $responseData['images'] = PropertyImage::collection($responseData['images']);
-        }
-
         if (isset($responseData['contacts'])) {
             $responseData['contacts'] = PropertyContact::collection($responseData['contacts']);
+        }
+
+        if (isset($responseData['policies'])) {
+            $responseData['policies'] = PropertyPolicy::collection($responseData['policies']);
         }
 
         return static::from($responseData);
