@@ -2,6 +2,7 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy;
 
+use Carbon\Carbon;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -35,5 +36,24 @@ class PropertyPolicy extends Data
 
     )
     {
+    }
+
+    /**
+     * @return PropertyCancellationPolicy|null
+     * @var Carbon $date
+     */
+    public function getApplicableCancellationPolicyByStayDate(Carbon $date): ?PropertyCancellationPolicy
+    {
+        $date = $date->copy()->startOfDay();
+
+        foreach ($this->cancellationPolicies as $cancellationPolicy) {
+            $startDate = Carbon::parse($cancellationPolicy->applicableDates->startDate);
+            $endDate = Carbon::parse($cancellationPolicy->applicableDates->endDate);
+            if ($date->betweenIncluded($startDate, $endDate)) {
+                return $cancellationPolicy;
+            }
+        }
+
+        return null;
     }
 }

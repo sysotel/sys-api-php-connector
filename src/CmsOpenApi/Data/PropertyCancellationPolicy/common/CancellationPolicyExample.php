@@ -14,10 +14,8 @@ class CancellationPolicyExample extends Data
         public ?string $checkInTime,
         public ?string $cancellationTime,
         public ?array $description = [],
-        public ?array $descriptionForBookingDate = [],
         public ?bool $isNonRefundable = null,
-        public ?bool $isFreeCancellationAvailable = null,
-        public ?bool $isFreeCancellationAvailableForBookingDate = null,
+        public ?bool $isFreeCancellationApplicable = null,
         public ?string $freeCancellationSentence = null,
 
     )
