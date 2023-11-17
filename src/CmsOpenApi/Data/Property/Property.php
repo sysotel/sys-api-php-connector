@@ -31,10 +31,10 @@ class Property extends Data
      * @param array $allowedBookingTypes
      * @param string[] $socialMediaUrls
      * @param string $createdAt
+     * @param PropertyPolicy|null $policy
      * @param DataCollection|null $spaces
      * @param DataCollection|null $images
      * @param DataCollection|null $contacts
-     * @param DataCollection|null $policies
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
@@ -59,6 +59,7 @@ class Property extends Data
 
 //        #[WithCast(DateTimeInterfaceCast::class)]
         public string          $createdAt,
+        public PropertyPolicy|null      $policy = null,
 
         #[DataCollectionOf(Space::class)]
         public ?DataCollection $spaces = null,
@@ -68,9 +69,6 @@ class Property extends Data
 
         #[DataCollectionOf(PropertyContact::class)]
         public ?DataCollection $contacts = null,
-
-        #[DataCollectionOf(PropertyPolicy::class)]
-        public ?DataCollection $policies = null,
 
         public ?PropertyImage  $logo = null,
         public ?PropertyImage  $bannerImage = null,
@@ -110,10 +108,6 @@ class Property extends Data
 
         if (isset($responseData['contacts'])) {
             $responseData['contacts'] = PropertyContact::collection($responseData['contacts']);
-        }
-
-        if (isset($responseData['policies'])) {
-            $responseData['policies'] = PropertyPolicy::collection($responseData['policies']);
         }
 
         return static::from($responseData);

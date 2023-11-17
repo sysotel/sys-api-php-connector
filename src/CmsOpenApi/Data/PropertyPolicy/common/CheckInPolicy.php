@@ -7,16 +7,16 @@ use Spatie\LaravelData\Data;
 class CheckInPolicy extends Data
 {
     /**
-     * @param string|null $dailyStandardTime
-     * @param string|null $details
-     * @param bool|null $is24HourCheckinAvailable
-     * @param string|null $earlyCheckInStatus
+     * @param string|null $standardTime
+     * @param string|null $earlyCheckIn
+     * @param string|null $additionalDetails
+     * @param string|null $description
      */
     public function __construct(
-        public string|null $dailyStandardTime,
-        public bool|null $is24HourCheckinAvailable,
-        public string|null $earlyCheckInStatus,
-        public string|null $details = null,
+        public string|null $standardTime,
+        public string|null $earlyCheckIn,
+        public string|null $additionalDetails = null,
+        public string|null $description = null
 
     )
     {

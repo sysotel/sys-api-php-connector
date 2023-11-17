@@ -8,11 +8,11 @@ class UnmarriedCoupleRule extends Data
 {
     /**
      * @param bool|null $isAllowed
-     * @param string|null $details
+     * @param string|null $description
      */
     public function __construct(
         public ?bool $isAllowed,
-        public ?string $details = null
+        public ?string $description = null
 
     )
     {
