@@ -8,11 +8,13 @@ class OutsideFoodRule extends Data
 {
     /**
      * @param bool|null $isAllowed
-     * @param string|null $description
+     * @param array|null $description
+     * @param string|null $outsideDescription
      */
     public function __construct(
         public ?bool $isAllowed = null,
-        public ?string $description = null
+        public ?array $description = [],
+        public ?string $outsideDescription = null
 
     )
     {
