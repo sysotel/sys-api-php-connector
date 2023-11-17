@@ -12,9 +12,13 @@ class CancellationPolicyExample extends Data
 {
     public function __construct(
         public ?string $checkInTime,
+        public ?string $cancellationTime,
         public ?array $description = [],
+        public ?array $descriptionForBookingDate = [],
         public ?bool $isNonRefundable = null,
-        public ?bool $iFreeCancellationAvailable = null,
+        public ?bool $isFreeCancellationAvailable = null,
+        public ?bool $isFreeCancellationAvailableForBookingDate = null,
+        public ?string $freeCancellationSentence = null,
 
     )
     {

@@ -17,7 +17,6 @@ class PropertyCancellationPolicy extends Data
         public ?string                            $status  = null,
         public ?bool                            $isNonRefundable  = null,
         public ?bool                            $isFreeCancellationAvailable  = null,
-        public ?array                            $description = [],
         public  ?CancellationPolicyExample $example = null
 
     )
