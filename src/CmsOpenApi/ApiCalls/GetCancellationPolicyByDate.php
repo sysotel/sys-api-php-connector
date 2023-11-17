@@ -16,9 +16,9 @@ class GetCancellationPolicyByDate extends CmsOpenApiCall
     /**
      * @param CmsOpenApi $api
      * @param int $propertyId
-     * @param Carbon $checkInDate
+     * @param ?Carbon $checkInDate
      */
-    public function __construct(CmsOpenApi $api, int $propertyId, Carbon $checkInDate)
+    public function __construct(CmsOpenApi $api, int $propertyId, ?Carbon $checkInDate)
     {
         parent::__construct($api);
         $this->propertyId = $propertyId;
