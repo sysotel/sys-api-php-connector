@@ -2,12 +2,10 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyApplicableDates;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyDefaultRule;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyRule;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyExample;
 
 class PropertyCancellationPolicy extends Data
 {
@@ -17,9 +15,7 @@ class PropertyCancellationPolicy extends Data
         public ?CancellationPolicyDefaultRule     $defaultRule,
         public ?CancellationPolicyApplicableDates $applicableDates,
         public ?string                            $status,
-
-        #[DataCollectionOf(CancellationPolicyRule::class)]
-        public ?DataCollection                    $rules = null,
+        public  ?CancellationPolicyExample $example = null
 
     )
     {

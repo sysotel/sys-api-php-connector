@@ -7,8 +7,8 @@ use Spatie\LaravelData\Data;
 class Penalty extends Data
 {
     public function __construct(
-        public string $type,
-        public int $value,
+        public string $penaltyType,
+        public int $penaltyPercentage,
     )
     {
     }

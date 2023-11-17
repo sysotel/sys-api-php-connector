@@ -9,25 +9,22 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\Property
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\AgePolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CheckInPolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CheckOutPolicy;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CustomPolicyItem;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\PropertyRules;
 
 class PropertyPolicy extends Data
 {
     /**
-     * @param string $id
      * @param int $propertyId
-     * @param CheckInPolicy|null $checkInPolicy
-     * @param CheckOutPolicy|null $checkOutPolicy
-     * @param AgePolicy|null $agePolicy
+     * @param CheckInPolicy|null $checkIn
+     * @param CheckOutPolicy|null $checkOut
      * @param PropertyRules|null $rules
      * @param DataCollection|null $cancellationPolicy
      */
     public function __construct(
-        public string $id,
         public int $propertyId,
-        public ?CheckInPolicy $checkInPolicy = null,
-        public ?CheckOutPolicy $checkOutPolicy = null,
-        public ?AgePolicy $agePolicy = null,
+        public ?CheckInPolicy $checkIn = null,
+        public ?CheckOutPolicy $checkOut = null,
         public ?PropertyRules $rules = null,
 
         #[DataCollectionOf(PropertyCancellationPolicy::class)]

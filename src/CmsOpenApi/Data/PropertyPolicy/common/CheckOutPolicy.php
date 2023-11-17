@@ -7,14 +7,16 @@ use Spatie\LaravelData\Data;
 class CheckOutPolicy extends Data
 {
     /**
-     * @param string|null $dailyStandardTime
-     * @param string|null $details
-     * @param string|null $lateCheckOutStatus
+     * @param string|null $standardTime
+     * @param string|null $lateCheckOut
+     * @param string|null $additionalDetails
+     * @param string|null $description
      */
     public function __construct(
-        public string|null $dailyStandardTime,
-        public string|null $lateCheckOutStatus,
-        public string|null $details = null,
+        public string|null $standardTime =  null,
+        public string|null $lateCheckOut =  null,
+        public string|null $additionalDetails = null,
+        public string|null $description = null,
 
     )
     {

@@ -2,6 +2,7 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi;
 
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyByDate;
@@ -169,11 +170,13 @@ class CmsOpenApi
 
     /**
      * @param int $propertyId
+     * @param Carbon $checkInDate
+     * @param Carbon|null $cancellationDate
      * @return GetPoliciesRS
      */
-    public function getCancellationPolicyByCheckInDate(int $propertyId): GetPoliciesRS
+    public function getCancellationPolicyByCheckInDate(int $propertyId, Carbon $checkInDate, ?Carbon $cancellationDate = null): GetPoliciesRS
     {
-        return (new GetCancellationPolicyByDate($this, $propertyId))->execute();
+        return (new GetCancellationPolicyByDate($this, $propertyId, $checkInDate, $cancellationDate))->execute();
     }
 
 }

@@ -12,18 +12,20 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\rules\Unmarri
 class PropertyRules extends Data
 {
     /**
-     * @param GuestDocumentRule|null $guestDocumentRule
-     * @param UnmarriedCoupleRule|null $unmarriedCoupleRule
-     * @param BachelorsRule|null $bachelorsRule
-     * @param OutsideFoodRule|null $outsideFoodRule
-     * @param PetsRule|null $petsRule
+     * @param AgePolicy|null $age
+     * @param GuestDocumentRule|null $documents
+     * @param UnmarriedCoupleRule|null $unmarriedCouple
+     * @param BachelorsRule|null $bachelors
+     * @param OutsideFoodRule|null $foodRestrictions
+     * @param PetsRule|null $pets
      */
     public function __construct(
-        public ?GuestDocumentRule $guestDocumentRule = null,
-        public ?UnmarriedCoupleRule $unmarriedCoupleRule = null,
-        public ?BachelorsRule $bachelorsRule = null,
-        public ?OutsideFoodRule $outsideFoodRule = null,
-        public ?PetsRule $petsRule = null,
+        public ?AgePolicy $age = null,
+        public ?GuestDocumentRule $documents = null,
+        public ?UnmarriedCoupleRule $unmarriedCouple = null,
+        public ?BachelorsRule $bachelors = null,
+        public ?OutsideFoodRule $foodRestrictions = null,
+        public ?PetsRule $pets = null,
     )
     {
     }
