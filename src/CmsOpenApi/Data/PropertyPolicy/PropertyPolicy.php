@@ -16,6 +16,7 @@ class PropertyPolicy extends Data
 {
     /**
      * @param int $propertyId
+     * @param string|null $status
      * @param CheckInPolicy|null $checkIn
      * @param CheckOutPolicy|null $checkOut
      * @param PropertyRules|null $rules
@@ -23,6 +24,7 @@ class PropertyPolicy extends Data
      */
     public function __construct(
         public int $propertyId,
+        public ?string $status = null,
         public ?CheckInPolicy $checkIn = null,
         public ?CheckOutPolicy $checkOut = null,
         public ?PropertyRules $rules = null,

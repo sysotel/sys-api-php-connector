@@ -128,6 +128,17 @@ class Property extends Data
         return null;
     }
 
+    public function getActivePolicy(): PropertyPolicy|null
+    {
+        foreach (($this->policy ?? []) as $policy) {
+            if ($policy?->status === CmsOpenApiEnums::PROPERTY_POLICY_STATUS_ACTIVE) {
+                return $policy;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * @param array $ids
      * @return array<Space>
