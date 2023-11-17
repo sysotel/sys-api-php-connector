@@ -171,11 +171,12 @@ class CmsOpenApi
     /**
      * @param int $propertyId
      * @param Carbon $checkInDate
+     * @param Carbon|null $cancellationDate
      * @return GetPoliciesRS
      */
-    public function getCancellationPolicyByCheckInDate(int $propertyId, Carbon $checkInDate): GetPoliciesRS
+    public function getCancellationPolicyByCheckInDate(int $propertyId, Carbon $checkInDate, ?Carbon $cancellationDate = null): GetPoliciesRS
     {
-        return (new GetCancellationPolicyByDate($this, $propertyId, $checkInDate))->execute();
+        return (new GetCancellationPolicyByDate($this, $propertyId, $checkInDate, $cancellationDate))->execute();
     }
 
 }
