@@ -19,6 +19,7 @@ class PropertyPolicy extends Data
      * @param string|null $status
      * @param CheckInPolicy|null $checkIn
      * @param CheckOutPolicy|null $checkOut
+     * @param CustomPolicyItem|null $general
      * @param PropertyRules|null $rules
      * @param DataCollection|null $cancellationPolicy
      */
@@ -27,6 +28,7 @@ class PropertyPolicy extends Data
         public ?string $status = null,
         public ?CheckInPolicy $checkIn = null,
         public ?CheckOutPolicy $checkOut = null,
+        public ?CustomPolicyItem $general = null,
         public ?PropertyRules $rules = null,
 
         #[DataCollectionOf(PropertyCancellationPolicy::class)]
