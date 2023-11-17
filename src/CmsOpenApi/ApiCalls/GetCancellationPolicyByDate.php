@@ -11,18 +11,21 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPropertyDetailsRS;
 class GetCancellationPolicyByDate extends CmsOpenApiCall
 {
     private Carbon $checkInDate;
+    private  ?Carbon $cancellationDate;
     private int $propertyId;
 
     /**
      * @param CmsOpenApi $api
      * @param int $propertyId
-     * @param ?Carbon $checkInDate
+     * @param Carbon $checkInDate
+     * @param Carbon|null $cancellationDate
      */
-    public function __construct(CmsOpenApi $api, int $propertyId, ?Carbon $checkInDate)
+    public function __construct(CmsOpenApi $api, int $propertyId, Carbon $checkInDate, ?Carbon $cancellationDate)
     {
         parent::__construct($api);
         $this->propertyId = $propertyId;
         $this->checkInDate = $checkInDate;
+        $this->cancellationDate = $cancellationDate;
     }
 
     /**
@@ -30,9 +33,18 @@ class GetCancellationPolicyByDate extends CmsOpenApiCall
      */
     public function execute(): GetPoliciesRS
     {
+
+        $url = "properties/{$this->propertyId}/cancellation-policies/scenario?checkInDate=" . urlencode($this->checkInDate->toDateString());
+
+        if ($this->cancellationDate) {
+            $url .= "&cancellationDate=" . urlencode($this->cancellationDate->toDateString());
+        }
+
+        $fullUrl = $this->api->getUrl($url);
+
         $request = new Request(
             method: 'GET',
-            uri: $this->api->getUrl("properties/{$this->propertyId}/cancellation-policies/scenario?checkInDate=" . urlencode($this->checkInDate->toDateString())),
+            uri: $fullUrl,
             headers: $this->api->prepareHeaders(),
         );
 
