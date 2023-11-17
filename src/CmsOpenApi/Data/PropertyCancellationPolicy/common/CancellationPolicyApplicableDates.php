@@ -2,17 +2,19 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common;
 
+use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\AgePolicy;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CheckInPolicy;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CheckOutPolicy;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\PropertyRules;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class CancellationPolicyApplicableDates extends Data
 {
     public function __construct(
-        public ?string $startDate,
-        public ?string $endDate,
+        #[WithTransformer(DateTimeInterfaceTransformer::class, format: 'Y-m-d\TH:i')]
+        public ?Carbon $startDate,
+
+        #[WithTransformer(DateTimeInterfaceTransformer::class, format: 'Y-m-d\TH:i')]
+        public ?Carbon $endDate,
 
     )
     {

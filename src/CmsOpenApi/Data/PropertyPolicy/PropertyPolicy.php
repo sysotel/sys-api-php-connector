@@ -6,7 +6,6 @@ use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\PropertyCancellationPolicy;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\AgePolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CheckInPolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CheckOutPolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\CustomPolicyItem;
@@ -21,7 +20,7 @@ class PropertyPolicy extends Data
      * @param CheckOutPolicy|null $checkOut
      * @param CustomPolicyItem|null $general
      * @param PropertyRules|null $rules
-     * @param DataCollection|null $cancellationPolicy
+     * @param DataCollection|null $cancellationPolicies
      */
     public function __construct(
         public int $propertyId,
@@ -32,7 +31,7 @@ class PropertyPolicy extends Data
         public ?PropertyRules $rules = null,
 
         #[DataCollectionOf(PropertyCancellationPolicy::class)]
-        public ?DataCollection                    $cancellationPolicy = null,
+        public ?DataCollection                    $cancellationPolicies = null,
 
     )
     {
