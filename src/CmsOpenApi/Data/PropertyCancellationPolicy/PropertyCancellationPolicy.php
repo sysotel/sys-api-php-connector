@@ -14,10 +14,14 @@ class PropertyCancellationPolicy extends Data
         public int                                $propertyId,
         public ?CancellationPolicyDefaultRule     $defaultRule,
         public ?CancellationPolicyApplicableDates $applicableDates,
-        public ?string                            $status,
+        public ?string                            $status  = null,
+        public ?bool                            $isNonRefundable  = null,
+        public ?bool                            $isFreeCancellationAvailable  = null,
+        public ?array                            $description = [],
         public  ?CancellationPolicyExample $example = null
 
     )
     {
     }
 }
+

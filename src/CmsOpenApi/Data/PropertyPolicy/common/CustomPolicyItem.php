@@ -8,11 +8,11 @@ class CustomPolicyItem extends Data
 {
     /**
      * @param string|null $showcaseType
-     * @param string|null $details
+     * @param string|null $description
      */
     public function __construct(
         public ?string $showcaseType,
-        public ?string $details = null,
+        public ?string $description = null,
 
     )
     {

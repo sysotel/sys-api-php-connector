@@ -12,7 +12,7 @@ class CancellationPolicyExample extends Data
 {
     public function __construct(
         public ?string $checkInTime,
-        public ?array $description = null,
+        public ?array $description = [],
         public ?bool $isNonRefundable = null,
         public ?bool $iFreeCancellationAvailable = null,
 
