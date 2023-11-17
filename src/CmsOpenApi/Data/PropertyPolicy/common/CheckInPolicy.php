@@ -13,8 +13,8 @@ class CheckInPolicy extends Data
      * @param string|null $description
      */
     public function __construct(
-        public string|null $standardTime,
-        public string|null $earlyCheckIn,
+        public string|null $standardTime =  null,
+        public string|null $earlyCheckIn =  null,
         public string|null $additionalDetails = null,
         public string|null $description = null
 

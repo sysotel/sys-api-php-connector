@@ -110,6 +110,10 @@ class Property extends Data
             $responseData['contacts'] = PropertyContact::collection($responseData['contacts']);
         }
 
+        if (isset($responseData['policy'])) {
+            $responseData['policy'] = PropertyPolicy::collection($responseData['policy']);
+        }
+
         return static::from($responseData);
     }
 

@@ -11,7 +11,7 @@ class BachelorsRule extends Data
      * @param string|null $description
      */
     public function __construct(
-        public ?bool $isAllowed,
+        public ?bool $isAllowed = null,
         public ?string $description = null
 
     )

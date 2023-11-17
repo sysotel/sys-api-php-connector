@@ -14,11 +14,11 @@ class AgePolicy extends Data
      * @param string|null $description
      */
     public function __construct(
-        public int|null $infantAgeThreshold,
-        public int|null $childAgeThreshold,
-        public int|null $freeChildAgeThreshold,
-        public int|null $noOfFreeChildGranted,
-        public string|null $description = null,
+        public int|null $infantAgeThreshold = null,
+        public int|null $childAgeThreshold = null,
+        public int|null $freeChildAgeThreshold = null,
+        public int|null $noOfFreeChildGranted = null,
+        public string|null $description = null ,
 
     )
     {

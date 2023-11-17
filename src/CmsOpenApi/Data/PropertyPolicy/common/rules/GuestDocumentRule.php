@@ -14,8 +14,8 @@ class GuestDocumentRule extends Data
      * @param string|null $description
      */
     public function __construct(
-        public ?bool   $isDocumentsRequiredOnCheckIn,
-        public ?bool   $isLocalIdAllowed,
+        public ?bool   $isDocumentsRequiredOnCheckIn = null,
+        public ?bool   $isLocalIdAllowed = null,
         public array   $acceptableIdentityProofs = [],
         public ?string $additionalDetails = null,
         public ?string $description = null,
