@@ -35,7 +35,7 @@ class GetPoliciesRS  extends CmsOpenApiResponse
             return $this;
         }
 
-        $this->policies = collect($responseData['policies'] ?? [])->map(function (array $policyData) {
+        $this->policies = collect([$responseData['policies']] ?? [])->map(function (array $policyData) {
             return PropertyPolicy::from($policyData);
         });
 
