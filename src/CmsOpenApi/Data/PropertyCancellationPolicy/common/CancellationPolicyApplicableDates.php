@@ -10,12 +10,8 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class CancellationPolicyApplicableDates extends Data
 {
     public function __construct(
-        #[WithTransformer(DateTimeInterfaceTransformer::class, format: 'Y-m-d\TH:i')]
-        public ?Carbon $startDate,
-
-        #[WithTransformer(DateTimeInterfaceTransformer::class, format: 'Y-m-d\TH:i')]
-        public ?Carbon $endDate,
-
+        public ?string $startDate,
+        public ?string $endDate,
     )
     {
     }
