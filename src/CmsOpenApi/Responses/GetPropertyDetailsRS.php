@@ -35,4 +35,6 @@ class GetPropertyDetailsRS extends CmsOpenApiResponse
     {
         return $this->property;
     }
+
+
 }
