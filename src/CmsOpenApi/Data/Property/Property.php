@@ -5,6 +5,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\Address;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion\Promotion;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property\common\PropertyLabels;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyContact\PropertyContact;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
@@ -43,40 +44,40 @@ class Property extends Data
      * @param int|null $buildYear
      */
     public function __construct(
-        public int             $id,
-        public string          $accountId,
-        public string          $slug,
-        public string          $name,
-        public string          $type,
-        public string          $baseCurrency,
-        public string          $timezone,
-        public int             $noOfSpaces,
-        public string          $status,
-        public PropertyLabels  $labels,
-        public Address         $address,
-        public array           $allowedBookingTypes,
-        public array           $socialMediaUrls,
+        public int                 $id,
+        public string              $accountId,
+        public string              $slug,
+        public string              $name,
+        public string              $type,
+        public string              $baseCurrency,
+        public string              $timezone,
+        public int                 $noOfSpaces,
+        public string              $status,
+        public PropertyLabels      $labels,
+        public Address             $address,
+        public array               $allowedBookingTypes,
+        public array               $socialMediaUrls,
 
 //        #[WithCast(DateTimeInterfaceCast::class)]
-        public string          $createdAt,
-        public PropertyPolicy|null      $policy = null,
+        public string              $createdAt,
+        public PropertyPolicy|null $policy = null,
 
         #[DataCollectionOf(Space::class)]
-        public ?DataCollection $spaces = null,
+        public ?DataCollection     $spaces = null,
 
         #[DataCollectionOf(PropertyImage::class)]
-        public ?DataCollection $images = null,
+        public ?DataCollection     $images = null,
 
         #[DataCollectionOf(PropertyContact::class)]
-        public ?DataCollection $contacts = null,
+        public ?DataCollection     $contacts = null,
 
-        public ?PropertyImage  $logo = null,
-        public ?PropertyImage  $bannerImage = null,
+        public ?PropertyImage      $logo = null,
+        public ?PropertyImage      $bannerImage = null,
 
-        public ?int            $starRating = null,
-        public ?string         $description = null,
-        public ?int            $noOfFloors = null,
-        public ?int            $buildYear = null,
+        public ?int                $starRating = null,
+        public ?string             $description = null,
+        public ?int                $noOfFloors = null,
+        public ?int                $buildYear = null,
     )
     {
     }
@@ -106,6 +107,10 @@ class Property extends Data
             $responseData['images'] = PropertyImage::collection($responseData['images']);
         }
 
+        if (isset($responseData['products'])) {
+            $responseData['promotions'] = Promotion::collection($responseData['promotions']);
+        }
+
         if (isset($responseData['contacts'])) {
             $responseData['contacts'] = PropertyContact::collection($responseData['contacts']);
         }
@@ -130,7 +135,7 @@ class Property extends Data
 
     public function getActivePolicy(): PropertyPolicy|null
     {
-        if ($this->policy->status === CmsOpenApiEnums::PROPERTY_POLICY_STATUS_ACTIVE){
+        if ($this->policy->status === CmsOpenApiEnums::PROPERTY_POLICY_STATUS_ACTIVE) {
             return $this->policy;
         }
 

@@ -129,6 +129,17 @@ enum CmsOpenApiEnums: string
     const CANCELLATION_POLICY_STATUS_ACTIVE = 'ACTIVE';
     const CANCELLATION_POLICY_STATUS_INACTIVE = 'INACTIVE';
 
+    const PROMOTION_TYPE_BASIC = 'BASIC';
+    const PROMOTION_TYPE_EARLY_BIRD = 'EARLY_BIRD';
+    const PROMOTION_TYPE_LAST_MINUTE = 'LAST_MINUTE';
+
+    const PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE = 'STAY_DATE';
+    const PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE_BOOKING_DATE = 'STAY_DATE_BOOKING_DATE';
+
+    const PROMOTION_STATUS_ACTIVE = 'ACTIVE';
+    const PROMOTION_STATUS_INACTIVE = 'ACTIVE';
+
+
     const CURRENCY_AED = 'AED';
     const CURRENCY_AFN = 'AFN';
     const CURRENCY_ALL = 'ALL';
@@ -667,6 +678,40 @@ enum CmsOpenApiEnums: string
             self::CURRENCY_ZAR,
             self::CURRENCY_ZMW,
             self::CURRENCY_ZWL,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionTypes(): array
+    {
+        return [
+            self::PROMOTION_TYPE_BASIC,
+            self::PROMOTION_TYPE_LAST_MINUTE,
+            self::PROMOTION_TYPE_EARLY_BIRD,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionStatuses(): array
+    {
+        return [
+            self::PROMOTION_STATUS_ACTIVE,
+            self::PROMOTION_STATUS_INACTIVE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionDateRestrictionTypes(): array
+    {
+        return [
+            self::PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE,
+            self::PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE_BOOKING_DATE,
         ];
     }
 }
