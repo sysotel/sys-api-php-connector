@@ -35,6 +35,7 @@ class Property extends Data
      * @param PropertyPolicy|null $policy
      * @param DataCollection|null $spaces
      * @param DataCollection|null $images
+     * @param DataCollection<Promotion>|null $promotions
      * @param DataCollection|null $contacts
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
@@ -67,6 +68,9 @@ class Property extends Data
 
         #[DataCollectionOf(PropertyImage::class)]
         public ?DataCollection     $images = null,
+
+        #[DataCollectionOf(Promotion::class)]
+        public ?DataCollection     $promotions = null,
 
         #[DataCollectionOf(PropertyContact::class)]
         public ?DataCollection     $contacts = null,
@@ -351,5 +355,53 @@ class Property extends Data
         return $this->contacts->filter(function (PropertyContact $contact) {
             return $contact->printOnBookingVoucher === true;
         })->all();
+    }
+
+    /**
+     * @return array
+     */
+    public function getAllActivePromotions(): array
+    {
+        $promotions = [];
+
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->status === CmsOpenApiEnums::PROMOTION_STATUS_ACTIVE) {
+                $promotions[] = $promotion;
+            }
+        }
+
+        return $promotions;
+    }/**
+ * @param string $type
+ * @return array
+ */
+    public function getAllPromotionsOfType(string $type): array
+    {
+        $promotions = [];
+
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->type === $type) {
+                $promotions[] = $promotion;
+            }
+        }
+
+        return $promotions;
+    }
+
+    /**
+     * @param string $type
+     * @return array
+     */
+    public function getAllActivePromotionsOfType(string $type): array
+    {
+        $promotions = [];
+
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->status === CmsOpenApiEnums::PROMOTION_STATUS_ACTIVE && $promotion->type === $type) {
+                $promotions[] = $promotion;
+            }
+        }
+
+        return $promotions;
     }
 }
