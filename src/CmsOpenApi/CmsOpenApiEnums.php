@@ -129,6 +129,9 @@ enum CmsOpenApiEnums: string
     const CANCELLATION_POLICY_STATUS_ACTIVE = 'ACTIVE';
     const CANCELLATION_POLICY_STATUS_INACTIVE = 'INACTIVE';
 
+    const PROMOTION_CATEGORY_PROMOTION = 'PROMOTION';
+    const PROMOTION_CATEGORY_PROMO_CODE = 'PROMO_CODE';
+
     const PROMOTION_TYPE_BASIC = 'BASIC';
     const PROMOTION_TYPE_EARLY_BIRD = 'EARLY_BIRD';
     const PROMOTION_TYPE_LAST_MINUTE = 'LAST_MINUTE';
@@ -680,6 +683,17 @@ enum CmsOpenApiEnums: string
             self::CURRENCY_ZAR,
             self::CURRENCY_ZMW,
             self::CURRENCY_ZWL,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionCategories(): array
+    {
+        return [
+            self::PROMOTION_CATEGORY_PROMOTION,
+            self::PROMOTION_CATEGORY_PROMO_CODE,
         ];
     }
 
