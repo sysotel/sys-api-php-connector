@@ -404,4 +404,19 @@ class Property extends Data
 
         return $promotions;
     }
+
+    /**
+     * @param string $id
+     * @return Promotion|null
+     */
+    public function getPromotionById(string $id): ?Promotion
+    {
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->id === $id) {
+                return $promotion;
+            }
+        }
+
+        return null;
+    }
 }
