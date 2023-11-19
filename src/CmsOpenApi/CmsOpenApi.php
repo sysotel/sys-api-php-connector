@@ -9,11 +9,15 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyByDate;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyById;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetLocations;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPolicies;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPromotionDetails;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPromotions;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetProperties;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPoliciesRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPromotionDetailsRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPromotionsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPropertyDetailsRS;
 
 class CmsOpenApi
@@ -137,6 +141,26 @@ class CmsOpenApi
     public function getPropertySearchResult(?string $searchTerm = null): CmsOpenApiResponse
     {
         return (new GetPropertySearchResult($this, $searchTerm))->execute();
+    }
+
+    /**
+     * @param int $propertyId
+     * @param array $query
+     * @return GetPromotionsRS
+     */
+    public function getPromotions(int $propertyId, array $query = []): GetPromotionsRS
+    {
+        return (new GetPromotions($this, $propertyId, $query))->execute();
+    }
+
+    /**
+     * @param int $propertyId
+     * @param string $promotionId
+     * @return GetPromotionDetailsRS
+     */
+    public function getPromotionDetails(int $propertyId, string $promotionId): GetPromotionDetailsRS
+    {
+        return (new GetPromotionDetails($this, $propertyId, $promotionId))->execute();
     }
 
     /**
