@@ -8,6 +8,11 @@ use Spatie\LaravelData\DataCollection;
 
 class ApplicableSpace extends Data
 {
+    /**
+     * @param int $spaceId
+     * @param DataCollection<ApplicableProduct>|null $applicableProducts
+     * @param bool|null $applicableOnAllProducts
+     */
     public function __construct(
         public int $spaceId,
 
