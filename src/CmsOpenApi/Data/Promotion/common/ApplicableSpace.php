@@ -9,12 +9,12 @@ use Spatie\LaravelData\DataCollection;
 class ApplicableSpace extends Data
 {
     /**
-     * @param int $spaceId
+     * @param int|null $spaceId
      * @param DataCollection<ApplicableProduct>|null $applicableProducts
      * @param bool|null $applicableOnAllProducts
      */
     public function __construct(
-        public int $spaceId,
+        public ?int $spaceId = null,
 
         #[DataCollectionOf(ApplicableProduct::class)]
         public ?DataCollection $applicableProducts = null,

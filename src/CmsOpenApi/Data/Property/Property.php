@@ -111,7 +111,7 @@ class Property extends Data
             $responseData['images'] = PropertyImage::collection($responseData['images']);
         }
 
-        if (isset($responseData['products'])) {
+        if (isset($responseData['promotions'])) {
             $responseData['promotions'] = Promotion::collection($responseData['promotions']);
         }
 

@@ -31,24 +31,24 @@ class Promotion extends Data
      * @param string|null $code
      */
     public function __construct(
-        public string                                                                          $id,
-        public int                                                                             $promoId,
-        public string                                                                          $category,
-        public string                                                                          $type,
-        public string                                                                          $status,
-        public int                                                                             $propertyId,
-        public string                                                                          $internalName,
-        public string                                                                          $displayName,
-        public string                                                                          $createdAt,
+        public string                  $id,
+        public int                     $promoId,
+        public string                  $category,
+        public string                  $type,
+        public string                  $status,
+        public int                     $propertyId,
+        public string                  $internalName,
+        public string                  $displayName,
+        public string                  $createdAt,
 
         #[WithCastable(PromotionDetailsCast::class)]
-        public null|BasicPromotionDetails|EarlyBirdPromotionDetails|LastMinutePromotionDetails $details = null,
+        public mixed                   $details = null,
 
-        public ?TimeSpan                                                                       $bookingTimeSpan = null,
-        public ?TimeSpan                                                                       $stayTimeSpan = null,
-        public ?ApplicableSpaceDetails                                                         $applicableSpaceDetails = null,
-        public ?string                                                                         $dateRestrictionType = null,
-        public ?string                                                                         $code = null,
+        public ?TimeSpan               $bookingTimeSpan = null,
+        public ?TimeSpan               $stayTimeSpan = null,
+        public ?ApplicableSpaceDetails $applicableSpaceDetails = null,
+        public ?string                 $dateRestrictionType = null,
+        public ?string                 $code = null,
     )
     {
     }
