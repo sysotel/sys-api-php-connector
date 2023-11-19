@@ -139,6 +139,8 @@ enum CmsOpenApiEnums: string
     const PROMOTION_STATUS_ACTIVE = 'ACTIVE';
     const PROMOTION_STATUS_INACTIVE = 'ACTIVE';
 
+    const PROMOTION_APPLICABLE_ON_SPACE_BASE_AMOUNT = 'SPACE_BASE_AMOUNT';
+    const PROMOTION_APPLICABLE_ON_SPACE_TOTAL_AMOUNT = 'SPACE_TOTAL_AMOUNT';
 
     const CURRENCY_AED = 'AED';
     const CURRENCY_AFN = 'AFN';
@@ -701,6 +703,17 @@ enum CmsOpenApiEnums: string
         return [
             self::PROMOTION_STATUS_ACTIVE,
             self::PROMOTION_STATUS_INACTIVE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionApplicableOnOptions(): array
+    {
+        return [
+            self::PROMOTION_APPLICABLE_ON_SPACE_BASE_AMOUNT,
+            self::PROMOTION_APPLICABLE_ON_SPACE_TOTAL_AMOUNT,
         ];
     }
 
