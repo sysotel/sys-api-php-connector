@@ -132,6 +132,9 @@ enum CmsOpenApiEnums: string
     const PROMOTION_CATEGORY_PROMOTION = 'PROMOTION';
     const PROMOTION_CATEGORY_PROMO_CODE = 'PROMO_CODE';
 
+    const PROMOTION_DISCOUNT_TYPE_PERCENTAGE = 'PERCENTAGE';
+    const PROMOTION_DISCOUNT_TYPE_FLAT = 'FLAT';
+
     const PROMOTION_TYPE_BASIC = 'BASIC';
     const PROMOTION_TYPE_EARLY_BIRD = 'EARLY_BIRD';
     const PROMOTION_TYPE_LAST_MINUTE = 'LAST_MINUTE';
@@ -717,6 +720,17 @@ enum CmsOpenApiEnums: string
         return [
             self::PROMOTION_STATUS_ACTIVE,
             self::PROMOTION_STATUS_INACTIVE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionDiscountTypes(): array
+    {
+        return [
+            self::PROMOTION_DISCOUNT_TYPE_PERCENTAGE,
+            self::PROMOTION_DISCOUNT_TYPE_FLAT,
         ];
     }
 
