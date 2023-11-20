@@ -358,7 +358,7 @@ class Property extends Data
     }
 
     /**
-     * @return array
+     * @return array<Promotion>
      */
     public function getAllActivePromotions(): array
     {
@@ -373,7 +373,7 @@ class Property extends Data
         return $promotions;
     }/**
  * @param string $type
- * @return array
+ * @return array<Promotion>
  */
     public function getAllPromotionsOfType(string $type): array
     {
@@ -390,7 +390,7 @@ class Property extends Data
 
     /**
      * @param string $type
-     * @return array
+     * @return array<Promotion>
      */
     public function getAllActivePromotionsOfType(string $type): array
     {
