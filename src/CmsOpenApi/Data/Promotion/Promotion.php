@@ -2,8 +2,11 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion;
 
+use Carbon\Carbon;
 use Spatie\LaravelData\Attributes\WithCastable;
 use Spatie\LaravelData\Data;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Cast\CarbonDateCast;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Cast\CarbonTimeCast;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Cast\PromotionDetailsCast;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion\common\ApplicableSpaceDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion\common\BasicPromotionDetails;
@@ -22,7 +25,7 @@ class Promotion extends Data
      * @param int $propertyId
      * @param string $internalName
      * @param string $displayName
-     * @param string $createdAt
+     * @param Carbon $createdAt
      * @param BasicPromotionDetails|EarlyBirdPromotionDetails|LastMinutePromotionDetails|null $details
      * @param TimeSpan|null $bookingTimeSpan
      * @param TimeSpan|null $stayTimeSpan
@@ -39,7 +42,9 @@ class Promotion extends Data
         public int                     $propertyId,
         public string                  $internalName,
         public string                  $displayName,
-        public string                  $createdAt,
+
+        #[WithCastable(CarbonTimeCast::class)]
+        public Carbon                  $createdAt,
 
         #[WithCastable(PromotionDetailsCast::class)]
         public mixed                   $details = null,
