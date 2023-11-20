@@ -419,4 +419,19 @@ class Property extends Data
 
         return null;
     }
+
+    /**
+     * @param string $code
+     * @return Promotion|null
+     */
+    public function getPromotionByPromoCode(string $code): ?Promotion
+    {
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->code === $code) {
+                return $promotion;
+            }
+        }
+
+        return null;
+    }
 }
