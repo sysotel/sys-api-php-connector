@@ -18,7 +18,7 @@ class CarbonDateCast implements Castable
                     return null;
                 }
 
-                return Carbon::createFromFormat($value, config('sys-api-connector.cms_open_api.date_format'));
+                return Carbon::createFromFormat(config('sys-api-connector.cms_open_api.date_format'), $value);
             }
         };
     }
