@@ -27,7 +27,6 @@ class CancellationPolicyExample extends Data
         public ?bool $isFreeCancellationAvailable = null,
         public ?string $freeCancellationSentence = null,
         public ?CancellationExample $cancellation = null,
-
     )
     {
     }
