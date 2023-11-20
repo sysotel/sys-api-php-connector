@@ -10,14 +10,23 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\common\PropertyRules
 
 class CancellationPolicyExample extends Data
 {
+    /**
+     * @param string|null $checkInTime
+     * @param string|null $bookingTime
+     * @param array|null $description
+     * @param bool|null $isNonRefundable
+     * @param bool|null $isFreeCancellationAvailable
+     * @param string|null $freeCancellationSentence
+     * @param CancellationExample|null $cancellation
+     */
     public function __construct(
         public ?string $checkInTime,
-        public ?string $cancellationTime,
+        public ?string $bookingTime = null,
         public ?array $description = [],
         public ?bool $isNonRefundable = null,
-        public ?bool $isFreeCancellationApplicable = null,
+        public ?bool $isFreeCancellationAvailable = null,
         public ?string $freeCancellationSentence = null,
-
+        public ?CancellationExample $cancellation = null,
     )
     {
     }
