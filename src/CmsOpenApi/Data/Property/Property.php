@@ -139,7 +139,7 @@ class Property extends Data
 
     public function getActivePolicy(): PropertyPolicy|null
     {
-        if ($this->policy->status === CmsOpenApiEnums::PROPERTY_POLICY_STATUS_ACTIVE) {
+        if ($this->policy?->status === CmsOpenApiEnums::PROPERTY_POLICY_STATUS_ACTIVE) {
             return $this->policy;
         }
 
