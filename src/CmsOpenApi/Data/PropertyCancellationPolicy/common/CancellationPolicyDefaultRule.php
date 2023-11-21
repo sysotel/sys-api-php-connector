@@ -7,7 +7,8 @@ use Spatie\LaravelData\Data;
 class CancellationPolicyDefaultRule extends Data
 {
     public function __construct(
-        public ?Penalty $penalty,
+        public ?string $penaltyType,
+        public ?int $penaltyPercentage,
         public int $interval,
     )
     {
