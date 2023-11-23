@@ -33,10 +33,10 @@ class Property extends Data
      * @param string[] $socialMediaUrls
      * @param string $createdAt
      * @param PropertyPolicy|null $policy
-     * @param DataCollection|null $spaces
-     * @param DataCollection|null $images
+     * @param DataCollection<Space>|null $spaces
+     * @param DataCollection<PropertyImage>|null $images
      * @param DataCollection<Promotion>|null $promotions
-     * @param DataCollection|null $contacts
+     * @param DataCollection<PropertyContact>|null $contacts
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
