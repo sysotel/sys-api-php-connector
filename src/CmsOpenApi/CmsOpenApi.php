@@ -5,6 +5,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetAmenities;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyByDate;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyById;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetLocations;
@@ -12,6 +13,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPolicies;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetProperties;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetAmenitiesRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPoliciesRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPropertyDetailsRS;
@@ -177,6 +179,15 @@ class CmsOpenApi
     public function getCancellationPolicyByCheckInDate(int $propertyId, Carbon $checkInDate, ?Carbon $cancellationDate = null): GetPoliciesRS
     {
         return (new GetCancellationPolicyByDate($this, $propertyId, $checkInDate, $cancellationDate))->execute();
+    }
+
+    /**
+     * @param int $propertyId
+     * @return GetAmenitiesRS
+     */
+    public function getAmenities(int $propertyId): GetAmenitiesRS
+    {
+        return (new GetAmenities($this, $propertyId))->execute();
     }
 
 }
