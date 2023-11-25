@@ -129,6 +129,25 @@ enum CmsOpenApiEnums: string
     const CANCELLATION_POLICY_STATUS_ACTIVE = 'ACTIVE';
     const CANCELLATION_POLICY_STATUS_INACTIVE = 'INACTIVE';
 
+    const PROMOTION_CATEGORY_PROMOTION = 'PROMOTION';
+    const PROMOTION_CATEGORY_PROMO_CODE = 'PROMO_CODE';
+
+    const PROMOTION_DISCOUNT_TYPE_PERCENTAGE = 'PERCENTAGE';
+    const PROMOTION_DISCOUNT_TYPE_FLAT = 'FLAT';
+
+    const PROMOTION_TYPE_BASIC = 'BASIC';
+    const PROMOTION_TYPE_EARLY_BIRD = 'EARLY_BIRD';
+    const PROMOTION_TYPE_LAST_MINUTE = 'LAST_MINUTE';
+
+    const PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE = 'STAY_DATE';
+    const PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE_BOOKING_DATE = 'STAY_DATE_BOOKING_DATE';
+
+    const PROMOTION_STATUS_ACTIVE = 'ACTIVE';
+    const PROMOTION_STATUS_INACTIVE = 'ACTIVE';
+
+    const PROMOTION_APPLICABLE_ON_SPACE_BASE_AMOUNT = 'SPACE_BASE_AMOUNT';
+    const PROMOTION_APPLICABLE_ON_SPACE_TOTAL_AMOUNT = 'SPACE_TOTAL_AMOUNT';
+
     const CURRENCY_AED = 'AED';
     const CURRENCY_AFN = 'AFN';
     const CURRENCY_ALL = 'ALL';
@@ -667,6 +686,73 @@ enum CmsOpenApiEnums: string
             self::CURRENCY_ZAR,
             self::CURRENCY_ZMW,
             self::CURRENCY_ZWL,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionCategories(): array
+    {
+        return [
+            self::PROMOTION_CATEGORY_PROMOTION,
+            self::PROMOTION_CATEGORY_PROMO_CODE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionTypes(): array
+    {
+        return [
+            self::PROMOTION_TYPE_BASIC,
+            self::PROMOTION_TYPE_LAST_MINUTE,
+            self::PROMOTION_TYPE_EARLY_BIRD,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionStatuses(): array
+    {
+        return [
+            self::PROMOTION_STATUS_ACTIVE,
+            self::PROMOTION_STATUS_INACTIVE,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionDiscountTypes(): array
+    {
+        return [
+            self::PROMOTION_DISCOUNT_TYPE_PERCENTAGE,
+            self::PROMOTION_DISCOUNT_TYPE_FLAT,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionApplicableOnOptions(): array
+    {
+        return [
+            self::PROMOTION_APPLICABLE_ON_SPACE_BASE_AMOUNT,
+            self::PROMOTION_APPLICABLE_ON_SPACE_TOTAL_AMOUNT,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function promotionDateRestrictionTypes(): array
+    {
+        return [
+            self::PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE,
+            self::PROMOTION_DATE_RESTRICTION_TYPE_STAY_DATE_BOOKING_DATE,
         ];
     }
 }
