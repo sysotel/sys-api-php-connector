@@ -3,6 +3,7 @@
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property;
 
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\Amenities;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\Address;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion\Promotion;
@@ -33,10 +34,11 @@ class Property extends Data
      * @param string[] $socialMediaUrls
      * @param string $createdAt
      * @param PropertyPolicy|null $policy
-     * @param DataCollection<Space>|null $spaces
-     * @param DataCollection<PropertyImage>|null $images
-     * @param DataCollection<Promotion>|null $promotions
-     * @param DataCollection<PropertyContact>|null $contacts
+     * @param Amenities|null $amenities
+     * @param DataCollection|null $spaces
+     * @param DataCollection|null $images
+     * @param DataCollection|null $promotions
+     * @param DataCollection|null $contacts
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
@@ -62,6 +64,7 @@ class Property extends Data
 //        #[WithCast(DateTimeInterfaceCast::class)]
         public string              $createdAt,
         public PropertyPolicy|null $policy = null,
+        public Amenities|null      $amenities = null,
 
         #[DataCollectionOf(Space::class)]
         public ?DataCollection     $spaces = null,
@@ -74,6 +77,7 @@ class Property extends Data
 
         #[DataCollectionOf(PropertyContact::class)]
         public ?DataCollection     $contacts = null,
+
 
         public ?PropertyImage      $logo = null,
         public ?PropertyImage      $bannerImage = null,
@@ -371,10 +375,12 @@ class Property extends Data
         }
 
         return $promotions;
-    }/**
- * @param string $type
- * @return array<Promotion>
- */
+    }
+
+    /**
+     * @param string $type
+     * @return array<Promotion>
+     */
     public function getAllPromotionsOfType(string $type): array
     {
         $promotions = [];
@@ -434,4 +440,37 @@ class Property extends Data
 
         return null;
     }
+
+    /**
+     * @return array|null
+     */
+    public function getFeaturedPropertyAmenities(): ?array
+    {
+        $propertiesAmenities = $this->amenities->propertyAmenities;
+
+        $featuredAmenities = [];
+
+        foreach ($propertiesAmenities as $amenityItem) {
+            $amenities = $amenityItem->amenities;
+
+            foreach ($amenities as $amenity) {
+                $amenityData = [
+                    'id' => $amenity->id,
+                    'name' => $amenity->name,
+                    'description' => $amenity->description,
+                    'isFeatured' => $amenity->isFeatured,
+                    'value' => [
+                        'flag' => $amenity->value->flag ?? false
+                    ]
+                ];
+
+                if ($amenity->isFeatured) {
+                    $featuredAmenities[] = $amenityData;
+                }
+            }
+        }
+
+        return $featuredAmenities;
+    }
+
 }
