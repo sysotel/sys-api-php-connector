@@ -25,4 +25,36 @@ class Amenities extends Data
     {
     }
 
+
+    public function getFeaturedPropertiesAmenities(): array
+    {
+        $propertiesAmenities = $this->propertyAmenities;
+
+        $featuredAmenities = [];
+
+        foreach ($propertiesAmenities as $amenityItem){
+            $amenities = $amenityItem->amenities;
+
+            foreach ($amenities as $amenity){
+                $amenityData = [
+                    'id' => $amenity->id,
+                    'name' => $amenity->name,
+                    'category' => $amenity->category,
+                    'description' => $amenity->description,
+                    'isFeatured' => $amenity->isFeatured,
+                    'value' => [
+                        'flag' => $amenity->value->flag ?? false
+                    ]
+                ];
+
+                if ($amenity->isFeatured){
+                    $featuredAmenities[] = $amenityData;
+                }
+            }
+        }
+
+        return $featuredAmenities;
+    }
+
+
 }
