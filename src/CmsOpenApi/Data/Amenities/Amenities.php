@@ -39,7 +39,6 @@ class Amenities extends Data
                 $amenityData = [
                     'id' => $amenity->id,
                     'name' => $amenity->name,
-                    'category' => $amenity->category,
                     'description' => $amenity->description,
                     'isFeatured' => $amenity->isFeatured,
                     'value' => [
