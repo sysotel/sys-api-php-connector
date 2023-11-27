@@ -441,36 +441,5 @@ class Property extends Data
         return null;
     }
 
-    /**
-     * @return array|null
-     */
-    public function getFeaturedPropertyAmenities(): ?array
-    {
-        $propertiesAmenities = $this->amenities->propertyAmenities;
-
-        $featuredAmenities = [];
-
-        foreach ($propertiesAmenities as $amenityItem) {
-            $amenities = $amenityItem->amenities;
-
-            foreach ($amenities as $amenity) {
-                $amenityData = [
-                    'id' => $amenity->id,
-                    'name' => $amenity->name,
-                    'description' => $amenity->description,
-                    'isFeatured' => $amenity->isFeatured,
-                    'value' => [
-                        'flag' => $amenity->value->flag ?? false
-                    ]
-                ];
-
-                if ($amenity->isFeatured) {
-                    $featuredAmenities[] = $amenityData;
-                }
-            }
-        }
-
-        return $featuredAmenities;
-    }
 
 }
