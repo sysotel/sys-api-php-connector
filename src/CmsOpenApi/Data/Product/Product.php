@@ -11,7 +11,7 @@ class Product extends Data
      * @param string $name
      * @param string $internalName
      * @param int $propertyId
-     * @param string $spaceId
+     * @param int $spaceId
      * @param string $mealPlanCode
      * @param string $status
      * @param string[]|null $inclusions
@@ -24,7 +24,7 @@ class Product extends Data
         public string $name,
         public string $internalName,
         public int $propertyId,
-        public string $spaceId,
+        public int $spaceId,
         public string $mealPlanCode,
         public string $status,
         public array $inclusions,
