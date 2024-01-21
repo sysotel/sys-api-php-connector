@@ -12,16 +12,16 @@ class PropertyCancellationPolicy extends Data
     public function __construct(
         public string                             $id,
         public int                                $propertyId,
-        public ?CancellationPolicyDefaultRule     $defaultRule,
-        public ?CancellationPolicyApplicableDates $applicableDates,
-        public ?string                            $status  = null,
-        public ?array                            $description  = [],
-        public ?bool                            $isNonRefundable  = null,
-        public ?bool                            $isFreeCancellationAvailable  = null,
-        public ?string                            $freeCancellationDescription  = null,
-        public ?string                            $createdAt  = null,
-        public  ?CancellationPolicyExample $example = null
-
+        public ?string                            $name = null,
+        public ?CancellationPolicyDefaultRule     $defaultRule = null,
+        public ?CancellationPolicyApplicableDates $applicableDates = null,
+        public ?string                            $status = null,
+        public ?array                             $description = [],
+        public ?bool                              $isNonRefundable = null,
+        public ?bool                              $isFreeCancellationAvailable = null,
+        public ?string                            $freeCancellationDescription = null,
+        public ?string                            $createdAt = null,
+        public ?CancellationPolicyExample         $example = null
     )
     {
     }
