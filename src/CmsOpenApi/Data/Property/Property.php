@@ -40,6 +40,7 @@ class Property extends Data
      * @param DataCollection|null $images
      * @param DataCollection|null $promotions
      * @param DataCollection|null $contacts
+     * @param DataCollection<PropertyFaq>|null $faqs
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
