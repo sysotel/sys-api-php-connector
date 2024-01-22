@@ -23,7 +23,7 @@ class GetPropertyDetailsRS extends CmsOpenApiResponse
             return $this;
         }
 
-        $this->property = Property::createFromApiResponse($responseData['propertyDetails']);
+        $this->property = Property::createFromApiResponse($responseData['propertyDetails'] ?? null);
 
         return $this;
     }
