@@ -3,6 +3,7 @@
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage;
 
 use Spatie\LaravelData\Data;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\ImageUrls;
 
 class PropertyImage extends Data
 {
@@ -18,6 +19,7 @@ class PropertyImage extends Data
         public string $createdAt,
         public string $url,
         public string|null $thumbnailUrl = null,
+        public ImageUrls|null $urls = null,
     )
     {
     }
