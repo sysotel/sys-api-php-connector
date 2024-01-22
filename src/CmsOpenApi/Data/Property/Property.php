@@ -9,6 +9,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion\Promotion;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property\common\PropertyLabels;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyContact\PropertyContact;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyFaq\PropertyFaq;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\PropertyPolicy;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
@@ -109,6 +110,11 @@ class Property extends Data
             }
 
             $responseData['spaces'] = Space::collection($responseData['spaces']);
+        }
+
+
+        if(isset($responseData['faqs'])) {
+            $responseData['faqs'] = PropertyFaq::collection($responseData['faqs']);
         }
 
         if (isset($responseData['images'])) {
