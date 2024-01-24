@@ -7,6 +7,7 @@ use Spatie\LaravelData\Data;
 class AgePolicy extends Data
 {
     /**
+     * @param int|null $adultAgeDescription
      * @param int|null $infantAgeThreshold
      * @param int|null $childAgeThreshold
      * @param int|null $freeChildAgeThreshold
@@ -18,6 +19,7 @@ class AgePolicy extends Data
      * @param array|null $description
      */
     public function __construct(
+        public int|null $adultAgeDescription = null,
         public int|null $infantAgeThreshold = null,
         public int|null $childAgeThreshold = null,
         public int|null $freeChildAgeThreshold = null,
