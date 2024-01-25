@@ -5,6 +5,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\Amenities;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\Address;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\NearByPlace;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Promotion\Promotion;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property\common\PropertyLabels;
@@ -84,6 +85,10 @@ class Property extends Data
         public ?DataCollection     $faqs = null,
 
 
+        #[DataCollectionOf(NearByPlace::class)]
+        public ?DataCollection     $nearByPlaces = null,
+
+
         public ?PropertyImage      $logo = null,
         public ?PropertyImage      $bannerImage = null,
 
@@ -131,6 +136,10 @@ class Property extends Data
 
         if (isset($responseData['contacts'])) {
             $responseData['contacts'] = PropertyContact::collection($responseData['contacts']);
+        }
+
+        if (isset($responseData['nearByPlaces'])) {
+            $responseData['nearByPlaces'] = NearByPlace::collection($responseData['nearByPlaces']);
         }
 
         return static::from($responseData);

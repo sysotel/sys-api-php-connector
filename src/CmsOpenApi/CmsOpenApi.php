@@ -9,6 +9,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetAmenities;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyByDate;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetCancellationPolicyById;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetLocations;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetNearByPlaces;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPolicies;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPromotionDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPromotions;
@@ -17,6 +18,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetAmenitiesRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetNearByPlaceRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPoliciesRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPromotionDetailsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPromotionsRS;
@@ -212,6 +214,15 @@ class CmsOpenApi
     public function getAmenities(int $propertyId): GetAmenitiesRS
     {
         return (new GetAmenities($this, $propertyId))->execute();
+    }
+
+    /**
+     * @param int $propertyId
+     * @return GetNearByPlaceRS
+     */
+    public function getNearByPlaces(int $propertyId): GetNearByPlaceRS
+    {
+        return (new GetNearByPlaces($this, $propertyId))->execute();
     }
 
 }
