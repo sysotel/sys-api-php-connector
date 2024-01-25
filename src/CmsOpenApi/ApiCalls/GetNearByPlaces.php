@@ -28,7 +28,7 @@ class GetNearByPlaces extends CmsOpenApiCall
     {
         $request = new Request(
             method: 'GET',
-            uri: $this->api->getUrl("properties/{$this->propertyId}/ nearby-places"),
+            uri: $this->api->getUrl("properties/{$this->propertyId}/nearby-places"),
             headers: $this->api->prepareHeaders(),
         );
 
