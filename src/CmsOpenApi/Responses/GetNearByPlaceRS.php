@@ -45,7 +45,7 @@ class GetNearByPlaceRS extends CmsOpenApiResponse
     /**
      * @return Collection<NearByPlace>
      */
-    public function getLocations(): Collection
+    public function getNearByPlaces(): Collection
     {
         return $this->neaByPlaces;
     }
