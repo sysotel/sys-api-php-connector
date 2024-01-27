@@ -5,7 +5,6 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\co
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
 
 class CancellationExample extends Data
 {
@@ -14,7 +13,7 @@ class CancellationExample extends Data
      * @param string|null $description
      * @param bool|null $isFreeCancellationAvailable
      * @param bool|null $isNonRefundable
-     * @param CancellationTimelineItem[]|DataCollection|null $timeline
+     * @param DataCollection<CancellationTimelineItem>|null $timeline
      */
     public function __construct(
         public ?string                   $cancellationDate = null,
@@ -22,7 +21,7 @@ class CancellationExample extends Data
         public ?bool                     $isFreeCancellationAvailable = null,
         public ?bool                     $isNonRefundable = null,
 
-        #[DataCollectionOf(Space::class)]
+        #[DataCollectionOf(CancellationTimelineItem::class)]
         public ?DataCollection $timeline = null,
     )
     {

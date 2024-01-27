@@ -12,6 +12,21 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\C
 
 class PropertyCancellationPolicy extends Data
 {
+    /**
+     * @param string $id
+     * @param int $propertyId
+     * @param string|null $name
+     * @param CancellationPolicyDefaultRule|null $defaultRule
+     * @param CancellationPolicyApplicableDates|null $applicableDates
+     * @param string|null $status
+     * @param array|null $description
+     * @param bool|null $isNonRefundable
+     * @param bool|null $isFreeCancellationAvailable
+     * @param string|null $freeCancellationDescription
+     * @param string|null $createdAt
+     * @param CancellationPolicyExample|null $example
+     * @param DataCollection<CancellationTimelineItem>|null $timeline
+     */
     public function __construct(
         public string                             $id,
         public int                                $propertyId,

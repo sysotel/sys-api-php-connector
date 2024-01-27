@@ -16,7 +16,7 @@ class CancellationPolicyExample extends Data
      * @param bool|null $isFreeCancellationAvailable
      * @param string|null $freeCancellationSentence
      * @param CancellationExample|null $cancellation
-     * @param DataCollection|null|CancellationTimelineItem[] $timeline
+     * @param DataCollection<CancellationTimelineItem>|null $timeline
      */
     public function __construct(
         public ?string                   $checkInTime,
