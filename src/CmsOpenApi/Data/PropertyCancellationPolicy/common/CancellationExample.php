@@ -20,7 +20,7 @@ class CancellationExample extends Data
         public ?bool $isFreeCancellationAvailable = null,
         public ?bool $isNonRefundable = null,
 
-        #[DataCollectionOf(Space::class)]
+        #[DataCollectionOf(Timeline::class)]
         public ?Timeline     $timeline = null,
     )
     {

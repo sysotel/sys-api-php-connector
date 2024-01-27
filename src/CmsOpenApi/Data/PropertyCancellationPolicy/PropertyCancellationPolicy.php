@@ -27,7 +27,7 @@ class PropertyCancellationPolicy extends Data
         public ?string                            $createdAt = null,
         public ?CancellationPolicyExample         $example = null,
 
-        #[DataCollectionOf(Space::class)]
+        #[DataCollectionOf(Timeline::class)]
         public ?Timeline     $timeline = null,
 
     )

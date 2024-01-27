@@ -27,7 +27,7 @@ class CancellationPolicyExample extends Data
         public ?string $freeCancellationSentence = null,
         public ?CancellationExample $cancellation = null,
 
-        #[DataCollectionOf(Space::class)]
+        #[DataCollectionOf(Timeline::class)]
         public ?Timeline     $timeline = null,
     )
     {
