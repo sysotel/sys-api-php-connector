@@ -16,19 +16,19 @@ class CancellationPolicyExample extends Data
      * @param bool|null $isFreeCancellationAvailable
      * @param string|null $freeCancellationSentence
      * @param CancellationExample|null $cancellation
-     * @param Timeline|null $timeline
+     * @param CancellationTimelineItem|null $timeline
      */
     public function __construct(
-        public ?string $checkInTime,
-        public ?string $bookingTime = null,
-        public ?array $description = [],
-        public ?bool $isNonRefundable = null,
-        public ?bool $isFreeCancellationAvailable = null,
-        public ?string $freeCancellationSentence = null,
-        public ?CancellationExample $cancellation = null,
+        public ?string                   $checkInTime,
+        public ?string                   $bookingTime = null,
+        public ?array                    $description = [],
+        public ?bool                     $isNonRefundable = null,
+        public ?bool                     $isFreeCancellationAvailable = null,
+        public ?string                   $freeCancellationSentence = null,
+        public ?CancellationExample      $cancellation = null,
 
         #[DataCollectionOf(Space::class)]
-        public ?Timeline     $timeline = null,
+        public ?CancellationTimelineItem $timeline = null,
     )
     {
     }

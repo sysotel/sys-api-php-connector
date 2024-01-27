@@ -4,7 +4,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\co
 
 use Spatie\LaravelData\Data;
 
-class Timeline extends Data
+class CancellationTimelineItem extends Data
 {
     public function __construct(
         public ?int $startInterval,
@@ -18,8 +18,6 @@ class Timeline extends Data
         public ?string $sentence,
         public ?int $penaltyValue,
         public ?string $penaltyLabel,
-
-
     )
     {
     }

@@ -8,8 +8,7 @@ use Spatie\LaravelData\DataCollection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyApplicableDates;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyDefaultRule;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationPolicyExample;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\Timeline;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyCancellationPolicy\common\CancellationTimelineItem;
 
 class PropertyCancellationPolicy extends Data
 {
@@ -26,9 +25,8 @@ class PropertyCancellationPolicy extends Data
         public ?string                            $freeCancellationDescription = null,
         public ?string                            $createdAt = null,
         public ?CancellationPolicyExample         $example = null,
-
-        #[DataCollectionOf(Space::class)]
-        public ?Timeline     $timeline = null,
+        #[DataCollectionOf(CancellationTimelineItem::class)]
+        public ?DataCollection                    $timeline = null,
 
     )
     {

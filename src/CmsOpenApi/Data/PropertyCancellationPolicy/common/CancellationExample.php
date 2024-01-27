@@ -15,13 +15,13 @@ class CancellationExample extends Data
      * @param bool|null $isNonRefundable
      */
     public function __construct(
-        public ?string $cancellationDate = null,
-        public ?string $description = null,
-        public ?bool $isFreeCancellationAvailable = null,
-        public ?bool $isNonRefundable = null,
+        public ?string                   $cancellationDate = null,
+        public ?string                   $description = null,
+        public ?bool                     $isFreeCancellationAvailable = null,
+        public ?bool                     $isNonRefundable = null,
 
         #[DataCollectionOf(Space::class)]
-        public ?Timeline     $timeline = null,
+        public ?CancellationTimelineItem $timeline = null,
     )
     {
     }
