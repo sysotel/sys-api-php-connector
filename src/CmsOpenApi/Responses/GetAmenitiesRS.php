@@ -5,13 +5,13 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Collection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\Amenities;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\AmenityDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Location\Location;
 
 class GetAmenitiesRS extends CmsOpenApiResponse
 {
     /**
-     * @var Collection<Amenities>
+     * @var Collection<AmenityDetails>
      */
     protected Collection $amenities;
 
@@ -37,7 +37,7 @@ class GetAmenitiesRS extends CmsOpenApiResponse
         }
 
         $this->amenities = collect($responseData['amenities'] ?? [])->map(function (array $amenities) {
-            return Amenities::from($amenities);
+            return AmenityDetails::from($amenities);
         });
 
         return $this;

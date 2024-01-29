@@ -3,6 +3,7 @@
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space;
 
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\AmenityDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\common\InventorySettings;
@@ -41,8 +42,9 @@ class Space extends Data
         public int $noOfUnits,
         public SpaceOccupancy $occupancy,
         public InventorySettings $inventorySettings,
-
         public string           $createdAt,
+        public ?float $rackRate = null,
+        public ?string $description = null,
 
         #[DataCollectionOf(Product::class)]
         public ?DataCollection $products = null,
@@ -50,8 +52,7 @@ class Space extends Data
         #[DataCollectionOf(PropertyImage::class)]
         public ?DataCollection $images = null,
 
-        public ?float $rackRate = null,
-        public ?string $description = null,
+        public AmenityDetails|null $amenityDetails = null,
     )
     {
     }

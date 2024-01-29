@@ -3,7 +3,7 @@
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Property;
 
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiEnums;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\Amenities;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\AmenityDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\common\Address;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\NearByPlace;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Product\Product;
@@ -36,12 +36,13 @@ class Property extends Data
      * @param string[] $socialMediaUrls
      * @param string $createdAt
      * @param PropertyPolicy|null $policy
-     * @param Amenities|null $amenities
+     * @param AmenityDetails|null $amenityDetails
      * @param DataCollection|null $spaces
      * @param DataCollection|null $images
      * @param DataCollection|null $promotions
      * @param DataCollection|null $contacts
      * @param DataCollection<PropertyFaq>|null $faqs
+     * @param DataCollection|null $nearByPlaces
      * @param PropertyImage|null $logo
      * @param PropertyImage|null $bannerImage
      * @param int|null $starRating
@@ -67,7 +68,7 @@ class Property extends Data
 //        #[WithCast(DateTimeInterfaceCast::class)]
         public string              $createdAt,
         public PropertyPolicy|null $policy = null,
-        public Amenities|null      $amenities = null,
+        public AmenityDetails|null $amenityDetails = null,
 
         #[DataCollectionOf(Space::class)]
         public ?DataCollection     $spaces = null,

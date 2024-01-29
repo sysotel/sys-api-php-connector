@@ -6,20 +6,19 @@ use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 
-class PropertyAmenities extends Data
+class AmenityCategory extends Data
 {
     /**
      * @param string|null $categoryId
      * @param string|null $categoryName
-     * @param DataCollection|null $amenities
+     * @param DataCollection<Amenity>|null $amenities
      */
     public function __construct(
         public ?string $categoryId = null,
         public ?string $categoryName = null,
 
-        #[DataCollectionOf(Amenities::class)]
+        #[DataCollectionOf(Amenity::class)]
         public ?DataCollection    $amenities = null,
-
     )
     {
     }
