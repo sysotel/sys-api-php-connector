@@ -37,10 +37,10 @@ class Property extends Data
      * @param string $createdAt
      * @param PropertyPolicy|null $policy
      * @param AmenityDetails|null $amenityDetails
-     * @param DataCollection|null $spaces
-     * @param DataCollection|null $images
-     * @param DataCollection|null $promotions
-     * @param DataCollection|null $contacts
+     * @param DataCollection<Space>|null $spaces
+     * @param DataCollection<PropertyImage>|null $images
+     * @param DataCollection<Promotion>|null $promotions
+     * @param DataCollection<PropertyContact>|null $contacts
      * @param DataCollection<PropertyFaq>|null $faqs
      * @param DataCollection|null $nearByPlaces
      * @param PropertyImage|null $logo
@@ -461,5 +461,18 @@ class Property extends Data
         return null;
     }
 
+    /**
+     * @param int $spaceId
+     * @return AmenityDetails|null
+     */
+    public function getSpaceAmenityDetails(int $spaceId): ?AmenityDetails
+    {
+        foreach($this->spaces as $space) {
+            if($space->id === $spaceId) {
+                return $space->amenityDetails;
+            }
+        }
 
+        return null;
+    }
 }
