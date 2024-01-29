@@ -11,12 +11,12 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Amenities\common\AmenityCategory;
 class AmenityDetails extends Data
 {
     /**
-     * @param DataCollection<AmenityCategory>|null $propertyAmenities
+     * @param DataCollection|null $amenityCategories
      */
     public function __construct(
 
         #[DataCollectionOf(AmenityCategory::class)]
-        public ?DataCollection $propertyAmenities = null,
+        public ?DataCollection $amenityCategories = null,
     )
     {
     }
@@ -26,7 +26,7 @@ class AmenityDetails extends Data
      */
     public function getFeaturedAmenities(): array
     {
-        $propertiesAmenities = $this->propertyAmenities;
+        $propertiesAmenities = $this->amenityCategories;
 
         $featuredAmenities = [];
 
