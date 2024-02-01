@@ -14,7 +14,7 @@ class Images extends Data
      * @param string|null $source
      * @param string|null $sourceUrl
      * @param bool|null $isFeatured
-     * @param Type|null $type
+     * @param PlaceType|null $type
      * @param int|null $rating
      * @param string|null $text
      * @param bool|null $translated
@@ -23,20 +23,20 @@ class Images extends Data
      * @param DataCollection|null $items
      */
     public function __construct(
-        public ?string   $_id,
-        public ?string   $source,
-        public ?string   $sourceUrl,
-        public ?bool   $isFeatured,
-        public ?Type   $type,
-        public ?int   $rating,
-        public ?string   $text,
-        public ?bool   $translated,
-        public ?string   $timestamp,
-        public ?int    $userRatingsTotal,
+        public ?string         $_id,
+        public ?string         $source,
+        public ?string         $sourceUrl,
+        public ?bool           $isFeatured,
+        public ?PlaceType      $type,
+        public ?int            $rating,
+        public ?string         $text,
+        public ?bool           $translated,
+        public ?string         $timestamp,
+        public ?int            $userRatingsTotal,
 
 
         #[DataCollectionOf(Items::class)]
-        public ?DataCollection    $items = null,
+        public ?DataCollection $items = null,
 
     )
     {
