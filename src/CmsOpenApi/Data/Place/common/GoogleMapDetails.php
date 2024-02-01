@@ -8,35 +8,35 @@ class GoogleMapDetails extends Data
 {
     /**
      * @param string $placeId
-     * @param string $placeIdDisplayName
-     * @param string $name
-     * @param string $addr1
-     * @param string $city
-     * @param string $province
-     * @param string $country
-     * @param string $postalCode
-     * @param float $longitude
-     * @param float $latitude
-     * @param float $phone
-     * @param float $internationalPhone
-     * @param float $url
-     * @param float $formattedAddress
+     * @param string|null $placeIdDisplayName
+     * @param string|null $name
+     * @param string|null $addr1
+     * @param string|null $city
+     * @param string|null $province
+     * @param string|null $country
+     * @param string|null $postalCode
+     * @param float|null $longitude
+     * @param float|null $latitude
+     * @param string|null $phone
+     * @param string|null $internationalPhone
+     * @param string|null $url
+     * @param string|null $formattedAddress
      */
     public function __construct(
         public string   $placeId,
-        public string   $placeIdDisplayName,
-        public string   $name,
-        public string   $addr1,
-        public string   $city,
-        public string   $province,
-        public string   $country,
-        public string   $postalCode,
-        public float   $longitude,
-        public float   $latitude,
-        public float   $phone,
-        public float   $internationalPhone,
-        public float   $url,
-        public float   $formattedAddress,
+        public ?string   $placeIdDisplayName = null,
+        public ?string   $name = null,
+        public ?string   $addr1 = null,
+        public ?string   $city = null,
+        public ?string   $province = null,
+        public ?string   $country = null,
+        public ?string   $postalCode = null,
+        public ?float   $longitude = null,
+        public ?float   $latitude = null,
+        public ?string   $phone = null,
+        public ?string   $internationalPhone = null,
+        public ?string   $url = null,
+        public ?string   $formattedAddress = null,
     )
     {
     }

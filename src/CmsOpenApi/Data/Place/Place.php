@@ -20,6 +20,7 @@ class Place extends Data
      * @param string|null $description
      * @param PlaceReputation|null $reputation
      * @param PlaceWebsite|null $website
+     * @param GoogleMapDetails|null $googleMapDetails
      * @param DataCollection|null $properties
      * @param DataCollection|null $images
      */
