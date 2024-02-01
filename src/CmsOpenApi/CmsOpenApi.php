@@ -218,11 +218,11 @@ class CmsOpenApi
 
     /**
      * @param int $propertyId
+     * @param int $distanceInKm
      * @return GetNearByPlaceRS
      */
-    public function getNearByPlaces(int $propertyId): GetNearByPlaceRS
+    public function getNearByPlaces(int $propertyId, int $distanceInKm): GetNearByPlaceRS
     {
-        return (new GetNearByPlaces($this, $propertyId))->execute();
+        return (new GetNearByPlaces($this, $propertyId, $distanceInKm))->execute();
     }
-
 }

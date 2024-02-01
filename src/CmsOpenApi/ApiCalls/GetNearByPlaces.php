@@ -9,16 +9,19 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetNearByPlaceRS;
 class GetNearByPlaces extends CmsOpenApiCall
 {
     private int $propertyId;
+    private int $distanceInKm;
 
     /**
      * @param CmsOpenApi $api
      * @param int $propertyId
+     * @param int $distanceInKm
      */
-    public function __construct(CmsOpenApi $api,  int $propertyId)
+    public function __construct(CmsOpenApi $api,  int $propertyId, int $distanceInKm)
     {
         parent::__construct($api);
-        $this->propertyId = $propertyId;
 
+        $this->propertyId = $propertyId;
+        $this->distanceInKm = $distanceInKm;
     }
 
     /**
@@ -28,10 +31,9 @@ class GetNearByPlaces extends CmsOpenApiCall
     {
         $request = new Request(
             method: 'GET',
-            uri: $this->api->getUrl("properties/{$this->propertyId}/nearby-places"),
+            uri: $this->api->getUrl("properties/{$this->propertyId}/nearby-places?distanceInKm={$this->distanceInKm}"),
             headers: $this->api->prepareHeaders(),
         );
-
 
         return (new GetNearByPlaceRS($request))->execute();
     }
