@@ -26,10 +26,11 @@ class Space extends Data
      * @param SpaceOccupancy $occupancy
      * @param InventorySettings $inventorySettings
      * @param string $createdAt
-     * @param DataCollection<Product>|null $products
-     * @param DataCollection<PropertyImage>|null $images
      * @param float|null $rackRate
      * @param string|null $description
+     * @param DataCollection<Product>|null $products
+     * @param DataCollection<PropertyImage>|null $images
+     * @param AmenityDetails|null $amenityDetails
      */
     public function __construct(
         public int $id,
@@ -100,8 +101,6 @@ class Space extends Data
 
         return in_array($slot, $this->inventorySettings->hourlySlots);
     }
-
-
 
     /**
      * @return PropertyImage|null

@@ -2,30 +2,26 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Location\common\LocationChannel;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 
-class Reputation extends Data
+class PlaceReputation extends Data
 {
     /**
      * @param float|null $rating
      * @param int|null $userRatingsTotal
-     * @param Meta|null $meta
+     * @param DataCollection<PlaceReview>|null $reviews
      */
     public function __construct(
         public ?float   $rating,
         public ?int    $userRatingsTotal,
 
-        #[DataCollectionOf(LocationChannel::class)]
+        #[DataCollectionOf(PlaceReview::class)]
         public ?DataCollection    $reviews = null,
-
     )
     {
     }
-
-
 }
 
 

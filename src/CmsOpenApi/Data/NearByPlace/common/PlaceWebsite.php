@@ -4,16 +4,16 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common;
 
 use Spatie\LaravelData\Data;
 
-class Resolution extends Data
+class PlaceWebsite extends Data
 {
     /**
-     * @param int $widthInPX
-     * @param int $heightInPX
+     * @param string|null $url
      */
     public function __construct(
-        public int    $widthInPX,
-        public int    $heightInPX,
+        public ?string   $url,
     )
     {
     }
 }
+
+

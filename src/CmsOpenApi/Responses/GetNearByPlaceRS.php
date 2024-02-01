@@ -5,12 +5,12 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Collection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\NearByPlace;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\Place;
 
 class GetNearByPlaceRS extends CmsOpenApiResponse
 {
     /**
-     * @var Collection<NearByPlace>
+     * @var Collection<Place>
      */
     protected Collection $neaByPlaces;
 
@@ -36,14 +36,14 @@ class GetNearByPlaceRS extends CmsOpenApiResponse
         }
 
         $this->neaByPlaces = collect($responseData['nearByPlaces'] ?? [])->map(function (array $nearByPlaceData) {
-            return NearByPlace::from($nearByPlaceData);
+            return Place::from($nearByPlaceData);
         });
 
         return $this;
     }
 
     /**
-     * @return Collection<NearByPlace>
+     * @return Collection<Place>
      */
     public function getNearByPlaces(): Collection
     {

@@ -358,6 +358,11 @@ enum CmsOpenApiEnums: string
     const SPACE_AMENITY_SAFETY_AND_SECURITY = 'SAFETY_AND_SECURITY';
     const SPACE_AMENITY_CHILDCARE = 'CHILDCARE';
     const SPACE_AMENITY_OTHER = 'OTHER';
+
+    const PLACE_BUSINESS_STATUS_CLOSED_PERMANENTLY = 'CLOSED_PERMANENTLY';
+    const PLACE_BUSINESS_STATUS_OPERATIONAL = 'OPERATIONAL';
+    const PLACE_BUSINESS_STATUS_BUSINESS_STATUS_UNSPECIFIED = 'BUSINESS_STATUS_UNSPECIFIED    ';
+    const PLACE_BUSINESS_STATUS_CLOSED_TEMPORARILY = 'CLOSED_TEMPORARILY    ';
     /**
      * @return string[]
      */
@@ -786,6 +791,9 @@ enum CmsOpenApiEnums: string
         ];
     }
 
+    /**
+     * @return string[]
+     */
     public static function propertyAmenityCategories(): array
     {
         return [
@@ -808,10 +816,11 @@ enum CmsOpenApiEnums: string
             self::PROPERTY_AMENITY_SAFETY_HYGIENE,
             self::PROPERTY_AMENITY_PET_ESSENTIALS
         ];
-
-
     }
 
+    /**
+     * @return string[]
+     */
     public static function spaceAmenityCategories(): array
     {
         return [
@@ -828,4 +837,16 @@ enum CmsOpenApiEnums: string
         ];
     }
 
+    /**
+     * @return string[]
+     */
+    public static function placeBusinessStatuses(): array
+    {
+        return [
+            self::PLACE_BUSINESS_STATUS_CLOSED_PERMANENTLY,
+            self::PLACE_BUSINESS_STATUS_OPERATIONAL,
+            self::PLACE_BUSINESS_STATUS_BUSINESS_STATUS_UNSPECIFIED,
+            self::PLACE_BUSINESS_STATUS_CLOSED_TEMPORARILY,
+        ];
+    }
 }

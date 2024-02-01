@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Location\common\LocationChannel;
 
-class Reviews extends Data
+class PlaceReview extends Data
 {
     /**
      * @param string|null $authorName
