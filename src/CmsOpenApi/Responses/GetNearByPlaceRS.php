@@ -5,7 +5,7 @@ namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Collection;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\Place;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\Place;
 
 class GetNearByPlaceRS extends CmsOpenApiResponse
 {

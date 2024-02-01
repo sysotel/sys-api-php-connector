@@ -1,14 +1,15 @@
 <?php
 
-namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace;
+namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place;
 
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common\Images;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common\PlaceWebsite;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common\Properties;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common\PlaceReputation;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\common\GoogleMapDetails;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\common\Images;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\common\PlaceWebsite;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\common\Properties;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\common\PlaceReputation;
 
 class Place extends Data
 {
@@ -29,6 +30,7 @@ class Place extends Data
         public ?string          $description,
         public ?PlaceReputation $reputation = null,
         public ?PlaceWebsite $website = null,
+        public ?GoogleMapDetails $googleMapDetails = null,
 
         #[DataCollectionOf(Properties::class)]
         public ?DataCollection  $properties = null,

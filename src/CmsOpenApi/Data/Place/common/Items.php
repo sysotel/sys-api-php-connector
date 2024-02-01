@@ -1,6 +1,6 @@
 <?php
 
-namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\NearByPlace\common;
+namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Place\common;
 
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
