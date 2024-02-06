@@ -251,6 +251,21 @@ class Property extends Data
         return $spaces;
     }
 
+    /**
+     * @param int $id
+     * @return Promotion|null
+     */
+    public function getPromotionByPromoId(int $id): ?Promotion
+    {
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->promoId === $id) {
+                return $promotion;
+            }
+        }
+
+        return null;
+    }
+
 
     /**
      * @return array<Space>
