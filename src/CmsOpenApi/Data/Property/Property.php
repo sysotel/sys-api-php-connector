@@ -240,6 +240,36 @@ class Property extends Data
     /**
      * @return array<Space>
      */
+    public function getAllSpaces(): array
+    {
+        $spaces = [];
+
+        foreach (($this->spaces ?? []) as $space) {
+            $spaces[] = $space;
+        }
+
+        return $spaces;
+    }
+
+    /**
+     * @param int $id
+     * @return Promotion|null
+     */
+    public function getPromotionByPromoId(int $id): ?Promotion
+    {
+        foreach ($this->promotions ?? [] as $promotion) {
+            if ($promotion->promoId === $id) {
+                return $promotion;
+            }
+        }
+
+        return null;
+    }
+
+
+    /**
+     * @return array<Space>
+     */
     public function getActiveDailySpaces(): array
     {
         $spaces = [];
