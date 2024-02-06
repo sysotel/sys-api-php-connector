@@ -240,6 +240,21 @@ class Property extends Data
     /**
      * @return array<Space>
      */
+    public function getAllSpaces(): array
+    {
+        $spaces = [];
+
+        foreach (($this->spaces ?? []) as $space) {
+            $spaces[] = $space;
+        }
+
+        return $spaces;
+    }
+
+
+    /**
+     * @return array<Space>
+     */
     public function getActiveDailySpaces(): array
     {
         $spaces = [];
