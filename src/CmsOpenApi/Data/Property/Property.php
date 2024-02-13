@@ -13,6 +13,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyContact\PropertyContact;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyFaq\PropertyFaq;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\PropertyPolicy;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyTestimonials\Testimonials;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
@@ -88,6 +89,11 @@ class Property extends Data
 
         #[DataCollectionOf(Place::class)]
         public ?DataCollection     $nearByPlaces = null,
+
+
+        #[DataCollectionOf(Testimonials::class)]
+        public ?DataCollection     $testimonials = null,
+
 
 
         public ?PropertyImage      $logo = null,
