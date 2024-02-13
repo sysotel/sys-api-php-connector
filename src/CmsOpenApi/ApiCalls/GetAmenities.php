@@ -22,7 +22,7 @@ class GetAmenities extends CmsOpenApiCall
     }
 
     /**
-     * @return GetPoliciesRS
+     * @return GetAmenitiesRS
      */
     public function execute(): GetAmenitiesRS
     {
