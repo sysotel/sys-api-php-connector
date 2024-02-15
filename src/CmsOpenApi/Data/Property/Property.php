@@ -13,6 +13,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyContact\PropertyContact;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyFaq\PropertyFaq;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyImage\PropertyImage;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyPolicy\PropertyPolicy;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\PropertyTestimonials\Testimonials;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Data\Space\Space;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
@@ -90,6 +91,10 @@ class Property extends Data
         public ?DataCollection     $nearByPlaces = null,
 
 
+        #[DataCollectionOf(Testimonials::class)]
+        public ?DataCollection     $testimonials = null,
+
+
         public ?PropertyImage      $logo = null,
         public ?PropertyImage      $bannerImage = null,
 
@@ -123,12 +128,16 @@ class Property extends Data
         }
 
 
-        if(isset($responseData['faqs'])) {
+        if (isset($responseData['faqs'])) {
             $responseData['faqs'] = PropertyFaq::collection($responseData['faqs']);
         }
 
         if (isset($responseData['images'])) {
             $responseData['images'] = PropertyImage::collection($responseData['images']);
+        }
+
+        if (isset($responseData['testimonials'])) {
+            $responseData['testimonials'] = Testimonials::collection($responseData['testimonials']);
         }
 
         if (isset($responseData['promotions'])) {
@@ -201,6 +210,19 @@ class Property extends Data
         }
 
         return $spaces;
+    }
+
+    /**
+     * @return array<Space>
+     */
+    public function getAllTestimonials(): array
+    {
+        $testimonials = [];
+
+        foreach (($this->testimonials ?? []) as $testimonial) {
+            $testimonials[] = $testimonial;
+        }
+        return $testimonials;
     }
 
 
@@ -497,8 +519,8 @@ class Property extends Data
      */
     public function getSpaceAmenityDetails(int $spaceId): ?AmenityDetails
     {
-        foreach($this->spaces as $space) {
-            if($space->id === $spaceId) {
+        foreach ($this->spaces as $space) {
+            if ($space->id === $spaceId) {
                 return $space->amenityDetails;
             }
         }

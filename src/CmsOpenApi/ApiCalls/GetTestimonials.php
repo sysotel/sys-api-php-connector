@@ -2,12 +2,13 @@
 
 namespace SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls;
 
-use GuzzleHttp\Psr7\Request;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApi;
-use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetAmenitiesRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\CmsOpenApiResponse;
+use GuzzleHttp\Psr7\Request;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPoliciesRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetTestimonialRS;
 
-class GetAmenities extends CmsOpenApiCall
+class GetTestimonials extends CmsOpenApiCall
 {
     private int $propertyId;
 
@@ -21,17 +22,18 @@ class GetAmenities extends CmsOpenApiCall
         $this->propertyId = $propertyId;
     }
 
+
     /**
-     * @return GetAmenitiesRS
+     * @return GetTestimonialRS
      */
-    public function execute(): GetAmenitiesRS
+    public function execute(): GetTestimonialRS
     {
         $request = new Request(
             method: 'GET',
-            uri: $this->api->getUrl("properties/{$this->propertyId}/amenities"),
+            uri: $this->api->getUrl("properties/{$this->propertyId}/testimonials"),
             headers: $this->api->prepareHeaders(),
         );
 
-        return (new GetAmenitiesRS($request))->execute();
+        return (new GetTestimonialRS($request))->execute();
     }
 }

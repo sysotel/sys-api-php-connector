@@ -16,6 +16,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPromotions;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetProperties;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertyDetails;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetPropertySearchResult;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\ApiCalls\GetTestimonials;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetAmenitiesRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetLocationsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetNearByPlaceRS;
@@ -23,6 +24,7 @@ use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPoliciesRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPromotionDetailsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPromotionsRS;
 use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetPropertyDetailsRS;
+use SYSOTEL\APP\ApiConnector\CmsOpenApi\Responses\GetTestimonialRS;
 
 class CmsOpenApi
 {
@@ -225,4 +227,15 @@ class CmsOpenApi
     {
         return (new GetNearByPlaces($this, $propertyId, $distanceInKm))->execute();
     }
+
+    /**
+     * @param int $propertyId
+     * @return GetTestimonialRS
+     */
+    public function getTestimonials(int $propertyId): GetTestimonialRS
+    {
+        return (new GetTestimonials($this, $propertyId))->execute();
+    }
+
+
 }
