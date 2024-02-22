@@ -18,7 +18,6 @@ class Testimonials extends Data
      * @param bool $isDeleted
      * @param Witness $witness
      * @param Content $content
-
      * @param DataCollection|null $images
      */
     public function __construct(
@@ -29,6 +28,10 @@ class Testimonials extends Data
 
         public Witness  $witness,
         public Content  $content,
+
+        #[WithCastable(CarbonDateCast::class)]
+        public ?Carbon $testifiedAt = null,
+
 
         #[DataCollectionOf(Images::class)]
         public ?DataCollection   $images = null,
